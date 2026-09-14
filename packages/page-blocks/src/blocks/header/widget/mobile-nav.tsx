@@ -34,7 +34,7 @@ const MobileNav = (props: MobileNavSettings) => {
                     className="lg:!hidden"
                 >
                     <MenuIcon className="h-4 w-4" />
-                    <span className="sr-only">Toggle Menu</span>
+                    <span className="sr-only">Ouvrir ou fermer le menu</span>
                 </Button>
             }
             side="right"

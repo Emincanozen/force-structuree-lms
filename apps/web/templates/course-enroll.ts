@@ -32,10 +32,10 @@ html
                 text-align: center;
             }
     body
-        p   You have been enrolled in a course: <strong> #{courseName} </strong>.
+        p   Ton accès est ouvert : <strong> #{courseName} </strong>.
         p 
-            |   To access all of your content, 
-            |   #[a(href=\`\${loginLink}\`) log in] here.
+            |   Pour retrouver tout ton contenu, 
+            |   #[a(href=\`\${loginLink}\`) connecte-toi ici].
         if !hideCourseLitBranding
             div(class="courselit-branding-container")
                 a(

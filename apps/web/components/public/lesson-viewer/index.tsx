@@ -293,7 +293,7 @@ export const LessonViewer = ({
                                         }
                                         type="video/mp4"
                                     />
-                                    Your browser does not support the video tag.
+                                    Ton navigateur ne sait pas lire cette vidéo.
                                 </video>
                                 <Caption
                                     text={
@@ -320,7 +320,7 @@ export const LessonViewer = ({
                                         }
                                         type="audio/mpeg"
                                     />
-                                    Your browser does not support the video tag.
+                                    Ton navigateur ne sait pas lire cette vidéo.
                                 </audio>
                                 <Caption
                                     text={

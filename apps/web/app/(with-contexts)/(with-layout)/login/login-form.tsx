@@ -133,7 +133,7 @@ export default function LoginForm({
                 otp: code,
             });
             if (error) {
-                setError(`Can't sign you in at this time: ${error.message}`);
+                setError(`La connexion n'a pas fonctionné : ${error.message}`);
             } else {
                 window.location.href =
                     redirectTo ||
@@ -235,7 +235,7 @@ export default function LoginForm({
                                             <Input
                                                 type="email"
                                                 value={email}
-                                                placeholder="Enter your email"
+                                                placeholder="Adresse email"
                                                 required={true}
                                                 onChange={(e) =>
                                                     setEmail(e.target.value)
@@ -269,7 +269,7 @@ export default function LoginForm({
                                             <Input
                                                 type="text"
                                                 value={code}
-                                                placeholder="Code"
+                                                placeholder="Code reçu par email"
                                                 required={true}
                                                 onChange={(e) =>
                                                     setCode(e.target.value)
@@ -328,7 +328,9 @@ export default function LoginForm({
                         <Caption theme={theme.theme} className="text-center">
                             {LOGIN_FORM_DISCLAIMER}
                             <Link href="/p/terms">
-                                <span className="underline">Terms</span>
+                                <span className="underline">
+                                    conditions générales de vente
+                                </span>
                             </Link>
                         </Caption>
                     </div>

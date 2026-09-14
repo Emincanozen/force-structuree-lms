@@ -218,9 +218,8 @@ export default function Widget({
                         {type === Constants.PageType.PRODUCT &&
                             !isLeadMagnet && (
                                 <Preheader theme={overiddenTheme}>
-                                    {getSymbolFromCurrency(
-                                        state.siteinfo.currencyISOCode,
-                                    )}
+                                    {/* Prix a la francaise : le montant
+                                        d'abord, le symbole ensuite. */}
                                     {
                                         getPlanPrice(
                                             product.paymentPlans.find(
@@ -230,6 +229,10 @@ export default function Widget({
                                             ),
                                         ).amount
                                     }
+                                    {" "}
+                                    {getSymbolFromCurrency(
+                                        state.siteinfo.currencyISOCode,
+                                    )}
                                 </Preheader>
                             )}
                         <div className="pb-1 mb-4">

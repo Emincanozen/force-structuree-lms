@@ -47,13 +47,13 @@ export function PaginationControls({
                                 : ""
                         }
                     >
-                        <Caption theme={theme}>Previous</Caption>
+                        <Caption theme={theme}>Précédent</Caption>
                     </PaginationPrevious>
                 </PaginationItem>
 
                 <div>
                     <Text2 theme={theme}>
-                        {currentPage} of {totalPages}
+                        {currentPage} sur {totalPages}
                     </Text2>
                 </div>
 
@@ -80,7 +80,7 @@ export function PaginationControls({
                                 : ""
                         }
                     >
-                        <Caption theme={theme}>Next</Caption>
+                        <Caption theme={theme}>Suivant</Caption>
                     </PaginationNext>
                 </PaginationItem>
             </PaginationContent>

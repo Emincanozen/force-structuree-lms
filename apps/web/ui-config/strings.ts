@@ -36,11 +36,11 @@ export const BUTTON_CANCEL_TEXT = "Cancel";
 export const BUTTON_CONFIRM_TEXT = "Confirm";
 export const BUTTON_CANCEL_SCHEDULED_MAIL = "Cancel sending";
 export const MEDIA_SEARCH_INPUT_PLACEHOLDER = "Search your media";
-export const LOAD_MORE_TEXT = "Load more";
+export const LOAD_MORE_TEXT = "Voir la suite";
 export const MANAGE_MEDIA_BUTTON_TEXT = "Insert media";
-export const MANAGE_COURSES_PAGE_HEADING = "Products";
+export const MANAGE_COURSES_PAGE_HEADING = "Les formations";
 export const COURSE_CUSTOMERS_PAGE_HEADING = "Customers";
-export const MANAGE_COMMUNITIES_PAGE_HEADING = "Communities";
+export const MANAGE_COMMUNITIES_PAGE_HEADING = "Espaces d'échange";
 export const MANAGE_PAGES_PAGE_HEADING = "Pages";
 export const BREADCRUMBS_EDIT_LESSON_COURSE_NAME = "Product";
 export const NEW_PAGE_HEADING = "New page";
@@ -71,14 +71,14 @@ export const BUTTON_SET_FEATURED_IMAGE = "Select";
 export const BUTTON_SELECT_MEDIA = "Pick media";
 export const FORM_FIELD_FEATURED_IMAGE = "Featured image";
 export const BTN_DELETE_COURSE = "Delete product";
-export const BTN_EXIT_COURSE = "Exit";
-export const BTN_EXIT_COURSE_TOOLTIP = "Exit course";
+export const BTN_EXIT_COURSE = "Quitter";
+export const BTN_EXIT_COURSE_TOOLTIP = "Quitter la formation";
 export const BTN_TOGGLE_THEME = "Toggle theme";
 export const BTN_ADD_VIDEO = "Add";
 export const ADD_VIDEO_DIALOG_TITLE = "Embed an online video";
 export const LABEL_NEW_PASSWORD = "New password";
-export const BUTTON_SAVE = "Save";
-export const BUTTON_SAVING = "Saving...";
+export const BUTTON_SAVE = "Enregistrer";
+export const BUTTON_SAVING = "Enregistrement…";
 export const GROUP_SETTINGS_HEADER = "Settings";
 export const GROUP_LESSONS_HEADER = "Lessons";
 export const BUTTON_DELETE_GROUP = "Delete Group";
@@ -98,8 +98,8 @@ export const SITE_SETTINGS_COURSELIT_BRANDING_CAPTION =
 export const SITE_SETTINGS_COURSELIT_BRANDING_SUB_CAPTION = `Hide "Powered by CourseLit" on your CourseLit courses and site.`;
 export const SITE_SETTINGS_PAGE_HEADING = "Settings";
 export const HEADER_COURSELIT = "About CourseLit";
-export const MEDIA_SELECTOR_UPLOAD_BTN_CAPTION = "Upload a picture";
-export const MEDIA_SELECTOR_REMOVE_BTN_CAPTION = "Remove picture";
+export const MEDIA_SELECTOR_UPLOAD_BTN_CAPTION = "Choisir une image";
+export const MEDIA_SELECTOR_REMOVE_BTN_CAPTION = "Retirer l'image";
 export const SITE_ADMIN_SETTINGS_STRIPE_SECRET = "Stripe Secret Key";
 export const SITE_ADMIN_SETTINGS_RAZORPAY_SECRET = "Razorpay Secret Key";
 export const SITE_ADMIN_SETTINGS_RAZORPAY_WEBHOOK_SECRET =
@@ -130,9 +130,9 @@ export const SITE_SETTINGS_PAYMENT_METHOD_RESET_CONFIRM_DESCRIPTION =
     "After reset, all paid plans of all products will fail at checkout with an error. Free plans will keep on working.";
 export const SITE_SETTINGS_PAYMENT_METHOD_RESET_CONFIRM_ACTION = "Reset";
 export const FREE_COST = "FREE";
-export const SIDEBAR_TEXT_COURSE_ABOUT = "Introduction";
-export const SIDEBAR_TEXT_COURSE_DISCUSSIONS = "Discussions";
-export const COURSE_DISCUSSIONS_TITLE = "Discussions";
+export const SIDEBAR_TEXT_COURSE_ABOUT = "Présentation";
+export const SIDEBAR_TEXT_COURSE_DISCUSSIONS = "Échanges";
+export const COURSE_DISCUSSIONS_TITLE = "Échanges";
 export const COURSE_DISCUSSIONS_TOOLTIP = "Discussions";
 export const COURSE_DISCUSSIONS_DESCRIPTION =
     "Enable lesson-specific discussions for this course";
@@ -140,27 +140,25 @@ export const DISCUSSIONS_DISABLED_MESSAGE =
     "Discussions are disabled for this product.";
 export const DISCUSSIONS_ENABLED_MESSAGE =
     "Discussions are enabled for this product.";
-export const COURSE_DISCUSSIONS_VIEW_ALL = "View all discussions";
-export const COURSE_DISCUSSIONS_EMPTY = "No discussions yet";
-export const COURSE_DISCUSSIONS_COMMENT_PLACEHOLDER = "Add a comment...";
-export const COURSE_DISCUSSIONS_REPLY_PLACEHOLDER = "Add a reply...";
-export const COURSE_DISCUSSIONS_POST_COMMENT = "Post Comment";
-export const COURSE_DISCUSSIONS_POST_REPLY = "Post Reply";
-export const COURSE_DISCUSSIONS_REPLY = "Reply";
-export const COURSE_DISCUSSIONS_REPORT = "Report";
-export const COURSE_DISCUSSIONS_DELETE = "Delete";
-export const COURSE_DISCUSSIONS_DELETED = "Deleted";
-export const COURSE_DISCUSSIONS_DELETE_CONFIRM_TITLE = "Delete discussion";
-export const COURSE_DISCUSSIONS_DELETE_CONFIRM =
-    "Are you sure you want to delete this?";
+export const COURSE_DISCUSSIONS_VIEW_ALL = "Voir tous les échanges";
+export const COURSE_DISCUSSIONS_EMPTY = "Aucun échange pour l'instant";
+export const COURSE_DISCUSSIONS_COMMENT_PLACEHOLDER = "Écris ton message…";
+export const COURSE_DISCUSSIONS_REPLY_PLACEHOLDER = "Écris ta réponse…";
+export const COURSE_DISCUSSIONS_POST_COMMENT = "Publier";
+export const COURSE_DISCUSSIONS_POST_REPLY = "Répondre";
+export const COURSE_DISCUSSIONS_REPLY = "Répondre";
+export const COURSE_DISCUSSIONS_REPORT = "Signaler";
+export const COURSE_DISCUSSIONS_DELETE = "Supprimer";
+export const COURSE_DISCUSSIONS_DELETED = "Supprimé";
+export const COURSE_DISCUSSIONS_DELETE_CONFIRM_TITLE = "Supprimer le message";
+export const COURSE_DISCUSSIONS_DELETE_CONFIRM = "Supprimer ce message ?";
 export const COURSE_DISCUSSIONS_DELETE_CONFIRM_DESCRIPTION =
-    "This action cannot be undone.";
-export const COURSE_DISCUSSIONS_DELETE_CANCEL = "Cancel";
+    "Cette action est définitive.";
+export const COURSE_DISCUSSIONS_DELETE_CANCEL = "Annuler";
 export const COURSE_DISCUSSIONS_REPORT_REASON = "Why are you reporting this?";
-export const COURSE_DISCUSSIONS_REPORTED = "Reported";
-export const COURSE_DISCUSSIONS_CONTENT_REQUIRED = "Add a comment first.";
-export const COURSE_DISCUSSIONS_CONTENT_TOO_LONG =
-    "Discussion content is too long.";
+export const COURSE_DISCUSSIONS_REPORTED = "Signalé";
+export const COURSE_DISCUSSIONS_CONTENT_REQUIRED = "Écris d'abord un message.";
+export const COURSE_DISCUSSIONS_CONTENT_TOO_LONG = "Ce message est trop long.";
 export const COURSE_DISCUSSIONS_ADMIN_REPORTS = "Reports";
 export const COURSE_DISCUSSIONS_ADMIN_VIEW_REPORTS = "Manage reported content";
 export const COURSE_DISCUSSIONS_ADMIN_NO_REPORTS = "No reports";
@@ -185,16 +183,16 @@ export const COURSE_DISCUSSIONS_ADMIN_REJECTION_DIALOG_TITLE =
 export const COURSE_DISCUSSIONS_ADMIN_REJECTION_DIALOG_DESCRIPTION =
     "Please provide a reason for rejecting this report. This is optional but recommended.";
 export const COURSE_DISCUSSIONS_ADMIN_REJECTION_DIALOG_LABEL = "Reason";
-export const COURSE_DISCUSSIONS_REPORT_DIALOG_TITLE = "Report post";
+export const COURSE_DISCUSSIONS_REPORT_DIALOG_TITLE = "Signaler ce message";
 export const COURSE_DISCUSSIONS_REPORT_DIALOG_DESCRIPTION =
-    "Please provide a reason for reporting this post.";
+    "Indique la raison du signalement.";
 export const COURSE_DISCUSSIONS_REPORT_DIALOG_PLACEHOLDER =
-    "Reason for reporting...";
-export const COURSE_DISCUSSIONS_REPORT_DIALOG_SUBMIT = "Submit";
-export const COURSE_DISCUSSIONS_EDIT = "Edit";
-export const COURSE_DISCUSSIONS_EDITED_LABEL = "edited";
-export const COURSE_DISCUSSIONS_SAVE = "Save";
-export const COURSE_DISCUSSIONS_CANCEL = "Cancel";
+    "Raison du signalement…";
+export const COURSE_DISCUSSIONS_REPORT_DIALOG_SUBMIT = "Envoyer";
+export const COURSE_DISCUSSIONS_EDIT = "Modifier";
+export const COURSE_DISCUSSIONS_EDITED_LABEL = "modifié";
+export const COURSE_DISCUSSIONS_SAVE = "Enregistrer";
+export const COURSE_DISCUSSIONS_CANCEL = "Annuler";
 export const REACT_COMPONENT_CRASHED =
     "We've encountered a problem in showing the content";
 export const CHECKOUT_PAGE_TITLE = "Checkout";
@@ -208,8 +206,8 @@ export const PAYMENT_VERIFICATION_FAILED =
 export const STRIPE_PUBLISHABLE_KEY_EMPTY =
     "Stripe configuration is invalid. Please contact site admin.";
 export const CAPTION_TRY_AGAIN = "Try again";
-export const CAPTION_CLOSE = "Close";
-export const LOADING = "Loading";
+export const CAPTION_CLOSE = "Fermer";
+export const LOADING = "Chargement…";
 export const WORKING = "Working...";
 export const BUTTON_NEW_LESSON_TEXT = "Add Lesson";
 export const BUTTON_NEW_LESSON_TEXT_DOWNLOAD = "Add File";
@@ -224,24 +222,23 @@ export const DANGER_ZONE_HEADER = "Danger zone";
 export const DANGER_ZONE_DESCRIPTION = "This action is irreversible.";
 export const DELETE_COURSE_POPUP_HEADER = "Delete course?";
 export const POPUP_OK_ACTION = "Delete";
-export const POPUP_CANCEL_ACTION = "Cancel";
+export const POPUP_CANCEL_ACTION = "Annuler";
 export const BTN_BACK_TO_CONTENT = "Back to content";
-export const LOGIN_SECTION_HEADER = "Sign In";
+export const LOGIN_SECTION_HEADER = "Connexion";
 export const LABEL_GROUP_NAME = "Name";
 export const LABEL_DRIP_EMAIL_SUBJECT = "Subject";
 export const LABEL_DRIP_DELAY = "Number of days after the last drip";
 export const LABEL_DRIP_DATE = "Date";
-export const BTN_LOGIN = "Continue";
-export const BTN_LOGIN_NO_CODE = "Resend";
+export const BTN_LOGIN = "Continuer";
+export const BTN_LOGIN_NO_CODE = "Renvoyer";
 export const LOGIN_FORM_LABEL =
-    "Enter your email to sign in or create an account";
-export const LOGIN_NO_CODE = "Did not get the code?";
-export const BTN_LOGIN_GET_CODE = "Get code";
-export const LOGIN_CODE_INTIMATION_MESSAGE =
-    "Enter the code sent to your email";
-export const LOGIN_FORM_DISCLAIMER = "By submitting, you accept the ";
-export const SIGNUP_SECTION_HEADER = "Create an account";
-export const SIGNUP_SECTION_BUTTON = "Join";
+    "Entre ton adresse email pour te connecter ou créer ton compte";
+export const LOGIN_NO_CODE = "Tu n'as pas reçu le code ?";
+export const BTN_LOGIN_GET_CODE = "Recevoir le code";
+export const LOGIN_CODE_INTIMATION_MESSAGE = "Entre le code reçu par email";
+export const LOGIN_FORM_DISCLAIMER = "En continuant, tu acceptes les ";
+export const SIGNUP_SECTION_HEADER = "Créer un compte";
+export const SIGNUP_SECTION_BUTTON = "Rejoindre";
 export const MEDIA_MANAGER_PAGE_HEADING = "Media";
 export const BUTTON_SEARCH = "Search";
 export const BUTTON_ADD_FILE = "Select a file";
@@ -269,11 +266,11 @@ export const APP_MESSAGE_LESSON_DELETED = "Lesson deleted";
 export const APP_MESSAGE_LESSON_SAVED = "Lesson details saved";
 export const APP_MESSAGE_COURSE_SAVED = "Changes saved";
 export const ENROLL_IN_THE_COURSE =
-    "You need to be enrolled in the course to view this lesson.";
-export const NOT_ENROLLED_HEADER = "Content Locked";
-export const USER_ERROR_HEADER = "Yikes!";
-export const ENROLL_BUTTON_TEXT = "Buy now";
-export const CHECKOUT_BUTTON_TEXT = "Complete Purchase";
+    "Cette leçon fait partie de la formation. Il faut y avoir accès pour la lire.";
+export const NOT_ENROLLED_HEADER = "Leçon réservée";
+export const USER_ERROR_HEADER = "Quelque chose n'a pas fonctionné";
+export const ENROLL_BUTTON_TEXT = "Acheter la formation";
+export const CHECKOUT_BUTTON_TEXT = "Valider ma commande";
 export const BUTTON_DELETE_MEDIA = "Delete";
 export const DELETE_MEDIA_POPUP_HEADER = "Delete this file?";
 export const HEADER_EDITING_MEDIA = "Edit media";
@@ -283,7 +280,7 @@ export const PREVIEW_PDF_FILE = "Preview in a new tab";
 export const APP_MESSAGE_MEDIA_DELETED = "Media deleted";
 export const APP_MESSAGE_MEDIA_UPDATED = "Media details updated";
 export const PAGE_HEADER_ALL_COURSES = "Courses";
-export const PAGE_HEADER_ALL_POSTS = "Blog";
+export const PAGE_HEADER_ALL_POSTS = "Articles";
 export const COURSE_TYPE_BLOG = "Blog";
 export const BACK_TO_BLOG = "Back to all blogs";
 export const COURSE_TYPE_COURSE = "Course";
@@ -372,43 +369,45 @@ export const EMPTY_COURSES_LIST_ADMIN =
     "Create your first course by clicking the + button on the top right.";
 export const HEADER_RESET_PASSWORD = "Reset password";
 export const HEADER_DESIGN = "Site";
-export const HEADER_YOUR_PROFILE = "Your Profile";
+export const HEADER_YOUR_PROFILE = "Mon compte";
 export const PROFILE_PAGE_MESSAGE_NOT_LOGGED_IN = "to see your profile.";
-export const PROFILE_PAGE_HEADER = "Profile";
-export const MY_CONTENT_HEADER = "My content";
-export const MY_CONTENT_PRODUCTS_TAB = "Products";
-export const MY_CONTENT_FEED_TAB = "Feed";
+export const PROFILE_PAGE_HEADER = "Mon compte";
+export const MY_CONTENT_HEADER = "Mes formations";
+export const MY_CONTENT_PRODUCTS_TAB = "Mes formations";
+export const MY_CONTENT_FEED_TAB = "Actualités";
 export const MY_CONTENT_EMPTY_PRODUCTS =
-    "You haven't enrolled in any products yet.";
+    "Tu n'as encore accès à aucune formation.";
 export const MY_CONTENT_EMPTY_COMMUNITIES =
     "You haven't joined any communities yet.";
-export const MY_CONTENT_BROWSE_PRODUCTS = "Browse products";
-export const MY_CONTENT_BROWSE_COMMUNITIES = "Browse communities";
-export const MY_CONTENT_FEED_EMPTY_TITLE = "No posts in your feed yet";
+export const MY_CONTENT_BROWSE_PRODUCTS = "Voir les formations";
+export const MY_CONTENT_BROWSE_COMMUNITIES = "Voir les espaces d'échange";
+export const MY_CONTENT_FEED_EMPTY_TITLE = "Rien à lire pour l'instant";
 export const MY_CONTENT_FEED_EMPTY_DESCRIPTION =
-    "Join communities and participate in discussions to see posts here.";
-export const MY_CONTENT_FEED_COMMUNITIES_TITLE = "Your communities";
+    "Les publications des espaces que tu auras rejoints apparaîtront ici.";
+export const MY_CONTENT_FEED_COMMUNITIES_TITLE = "Tes espaces d'échange";
 export const MY_CONTENT_FEED_COMMUNITIES_EMPTY =
-    "You haven't joined any communities yet.";
+    "Tu n'as rejoint aucun espace d'échange.";
 export const NOTIFICATION_SETTINGS_PAGE_HEADER = "Notifications";
 export const NOTIFICATION_SETTINGS_PAGE_DESCRIPTION =
-    "Manage how you receive notifications for each activity.";
-export const NOTIFICATION_SETTINGS_RESOURCE_TEXT = "Customize notifications";
-export const NOTIFICATION_SETTINGS_COLUMN_ACTIVITY = "Activity";
+    "Choisis ce dont tu veux être prévenu par email.";
+export const NOTIFICATION_SETTINGS_RESOURCE_TEXT =
+    "Personnaliser les notifications";
+export const NOTIFICATION_SETTINGS_COLUMN_ACTIVITY = "Événement";
 export const NOTIFICATION_SETTINGS_EMPTY_STATE =
-    "No notification preferences are available for your account.";
-export const NOTIFICATION_SETTINGS_GROUP_GENERAL = "General";
-export const NOTIFICATION_SETTINGS_GROUP_PRODUCT_MANAGEMENT = "Product";
-export const NOTIFICATION_SETTINGS_GROUP_USER_MANAGEMENT = "User";
-export const NOTIFICATION_SETTINGS_GROUP_COMMUNITY_MANAGEMENT = "Community";
-export const PROFILE_EMAIL_PREFERENCES = "Email preferences";
-export const PROFILE_SECTION_DETAILS = "Personal details";
-export const PROFILE_SECTION_DETAILS_NAME = "Name";
-export const PROFILE_SECTION_DETAILS_EMAIL = "Email";
-export const PROFILE_SECTION_DETAILS_BIO = "Bio";
-export const PROFILE_SECTION_DISPLAY_PICTURE = "Profile photo";
+    "Aucun réglage de notification n'est disponible pour ton compte.";
+export const NOTIFICATION_SETTINGS_GROUP_GENERAL = "Général";
+export const NOTIFICATION_SETTINGS_GROUP_PRODUCT_MANAGEMENT = "Formations";
+export const NOTIFICATION_SETTINGS_GROUP_USER_MANAGEMENT = "Comptes";
+export const NOTIFICATION_SETTINGS_GROUP_COMMUNITY_MANAGEMENT =
+    "Espaces d'échange";
+export const PROFILE_EMAIL_PREFERENCES = "Emails";
+export const PROFILE_SECTION_DETAILS = "Tes informations";
+export const PROFILE_SECTION_DETAILS_NAME = "Nom";
+export const PROFILE_SECTION_DETAILS_EMAIL = "Adresse email";
+export const PROFILE_SECTION_DETAILS_BIO = "Présentation";
+export const PROFILE_SECTION_DISPLAY_PICTURE = "Photo de profil";
 export const PROFILE_EMAIL_PREFERENCES_NEWSLETTER_OPTION_TEXT =
-    "Receive newsletter and marketing emails";
+    "Recevoir les annonces des prochaines formations";
 export const BTN_PUBLISH = "Publish";
 export const BTN_UNPUBLISH = "Unpublish";
 export const PERM_SECTION_HEADER = "Permissions";
@@ -493,8 +492,8 @@ export const MEDIA_PUBLIC = "Publicly available";
 export const MEDIA_DIRECT_URL = "Direct URL";
 export const MEDIA_URL_COPIED = "Copied to clipboard";
 export const MEDIA_FILE_TYPE = "File type";
-export const LOGOUT = "Logout";
-export const LOGOUT_MESSAGE = "Are you sure you want to logout?";
+export const LOGOUT = "Se déconnecter";
+export const LOGOUT_MESSAGE = "Tu veux vraiment te déconnecter ?";
 export const USER_TABLE_HEADER_NAME = "Details";
 export const USER_TABLE_HEADER_STATUS = "Status";
 export const USER_TABLE_HEADER_PRODUCTS = "Products";
@@ -574,29 +573,29 @@ export const PAGE_TITLE_VIEW_PAGE = "View";
 export const PAGE_HEADER_EDIT_PAGE = "Edit page";
 export const EDIT_PAGE_MENU_ITEM = "Edit page";
 export const VIEW_PAGE_MENU_ITEM = "View page";
-export const PREVIEW_COURSE_MENU_ITEM = "Preview";
+export const PREVIEW_COURSE_MENU_ITEM = "Aperçu";
 export const EDIT_PAGE_BUTTON_UPDATE = "Publish";
 export const EDIT_PAGE_BUTTON_VIEW = "View";
 export const EDIT_PAGE_BUTTON_DONE = "Exit";
 export const EDIT_PAGE_ADD_WIDGET_TITLE = "New block";
 export const EDIT_PAGE_WIDGET_LIST_HEADER = "Page blocks";
 export const THEMES_TABLE_HEADER_NAME = "Name";
-export const ACCOUNT_PROGRESS_SUFFIX = "% Complete";
-export const CHECKOUT_PAGE_TOTAL = "Total";
-export const COURSE_PROGRESS_PREV = "Previous";
-export const COURSE_PROGRESS_INTRO = "Introduction";
-export const COURSE_PROGRESS_NEXT = "Complete and continue";
-export const COURSE_PROGRESS_START = "Start";
-export const COURSE_PROGRESS_FINISH = "Complete and finish";
-export const COURSE_PROGRESS_MARK_COMPLETED = "Mark as completed";
-export const COURSE_PROGRESS_COMPLETED = "Completed";
+export const ACCOUNT_PROGRESS_SUFFIX = "% terminé";
+export const CHECKOUT_PAGE_TOTAL = "Total à payer";
+export const COURSE_PROGRESS_PREV = "Leçon précédente";
+export const COURSE_PROGRESS_INTRO = "Présentation";
+export const COURSE_PROGRESS_NEXT = "Terminé, leçon suivante";
+export const COURSE_PROGRESS_START = "Commencer";
+export const COURSE_PROGRESS_FINISH = "Terminer la formation";
+export const COURSE_PROGRESS_MARK_COMPLETED = "Marquer comme lue";
+export const COURSE_PROGRESS_COMPLETED = "Lue";
 export const BTN_NEW_BLOG = "New blog";
 export const MANAGE_BLOG_PAGE_HEADING = "Blogs";
 export const BLOG_TABLE_HEADER_NAME = "Title";
 export const PAGE_HEADER_NEW_BLOG = "New blog";
 export const MENU_BLOG_VISIT = "Visit blog";
 export const ACCOUNT_NO_PURCHASE_PLACEHOLDER =
-    "Your enrolled courses will show up here.";
+    "Tes formations apparaîtront ici.";
 export const EXPORT_CSV = "Export to CSV";
 export const GENERIC_FAILURE_MESSAGE = "That didn't work. Please try again.";
 export const LESSON_QUIZ_ADD_QUESTION = "Add question";
@@ -832,7 +831,7 @@ export const APP_MESSAGE_MAIL_DELETED = "Mail deleted";
 export const NEW_PAGE_FORM_WARNING =
     "These settings cannot be changed later on, so proceed with caution.";
 export const DASHBOARD_PAGE_HEADER = "Welcome";
-export const UNNAMED_USER = "Stranger";
+export const UNNAMED_USER = "Anonyme";
 export const MAIL_REQUEST_FORM_REASON_FIELD = "Reason";
 export const MAIL_REQUEST_FORM_REASON_PLACEHOLDER =
     "Please be as detailed as possible. This will help us review your application better.";
@@ -861,11 +860,12 @@ export const PAYMENT_PLANS_HEADER = "Payment Plans";
 export const NEW_PAYMENT_PLAN_DESCRIPTION =
     "Configure a new payment plan for your";
 export const EDIT_PAYMENT_PLAN_DESCRIPTION = "Update the configuration for";
-export const TOAST_TITLE_SUCCESS = "Success";
+export const TOAST_TITLE_SUCCESS = "C'est fait";
 export const TOAST_SEQUENCE_SAVED = "Sequence changes saved successfully";
-export const TOAST_QUIZ_PASS_MESSAGE = "Pass 🎉";
-export const TOAST_QUIZ_FAIL_MESSAGE = "Fail ☠️";
-export const TOAST_TITLE_ERROR = "Error";
+export const TOAST_QUIZ_PASS_MESSAGE = "Quiz réussi";
+export const TOAST_QUIZ_FAIL_MESSAGE =
+    "Quiz manqué, relis la leçon et réessaie";
+export const TOAST_TITLE_ERROR = "Erreur";
 export const TOAST_DESCRIPTION_CHANGES_SAVED = "Changes saved";
 export const DELETED_COMMENT_PLACEHOLDER = "Deleted";
 export const SETTINGS_RESOURCE_PAYMENT = "Set up payment";
@@ -879,25 +879,25 @@ export const PRODUCT_EMPTY_WARNING =
     "Your product is empty. Add some content to make it look interesting.";
 export const BLOG_UPDATED_PREFIX = "Updated";
 export const HEADER_HELP = "Help";
-export const CHECKOUT_PAGE_ORDER_SUMMARY = "Order summary";
+export const CHECKOUT_PAGE_ORDER_SUMMARY = "Récapitulatif de ta commande";
 export const TEXT_EDITOR_PLACEHOLDER = "Type here...";
-export const BTN_VIEW_CERTIFICATE = "View certificate";
+export const BTN_VIEW_CERTIFICATE = "Voir mon certificat";
 export const GET_SET_UP = "Get set up";
 export const MANAGE_LINK_TEXT = "Manage";
-export const BLOG_LIST_EMPTY_TITLE = "No Posts Found";
+export const BLOG_LIST_EMPTY_TITLE = "Aucun article";
 export const BLOG_LIST_EMPTY_DESCRIPTION_PUBLIC =
-    "The team has not published any posts yet.";
+    "Aucun article n'a encore été publié.";
 export const BLOG_LIST_EMPTY_DESCRIPTION_PRIVATE =
-    "You have not published any posts yet.";
-export const PRODUCTS_LIST_EMPTY_TITLE = "No Products Found";
+    "Tu n'as encore publié aucun article.";
+export const PRODUCTS_LIST_EMPTY_TITLE = "Aucune formation";
 export const PRODUCTS_LIST_EMPTY_DESCRIPTION_PUBLIC =
-    "The team has not added any products yet.";
+    "Aucune formation n'est disponible pour le moment.";
 export const PRODUCTS_LIST_EMPTY_DESCRIPTION_PRIVATE =
-    "You have not added any products yet.";
+    "Aucune formation n'a encore été ajoutée.";
 export const LOGIN_CODE_SENT_MESSAGE =
     "We have emailed you a one time password.";
 export const LESSON_EMBED_URL_LABEL = "Embed code";
 export const LESSON_CONTENT_LABEL = "Content";
 export const EMAIL_EDITOR_EMAIL_EDIT_HEADER = "Editing email";
 export const EMAIL_EDITOR_TEMPLATE_EDIT_HEADER = "Editing template";
-export const LOGIN_FORM_PERSONAL_INFORMATION_LABEL = "Personal Information";
+export const LOGIN_FORM_PERSONAL_INFORMATION_LABEL = "Tes informations";

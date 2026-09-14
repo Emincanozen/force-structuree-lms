@@ -80,7 +80,7 @@ export default function AccomplishmentPage() {
                                 theme={theme.theme}
                                 className="flex items-center gap-1"
                             >
-                                Visit <ExternalLinkIcon className="h-4 w-4" />
+                                Ouvrir <ExternalLinkIcon className="h-4 w-4" />
                             </Badge>
                         </Link>
                     </div>
@@ -117,14 +117,14 @@ export default function AccomplishmentPage() {
                 {/* Certificate section header - responsive */}
                 <div className="flex flex-col gap-4">
                     <div className="flex items-center justify-between">
-                        <Header2 theme={theme.theme}>Certificate</Header2>
+                        <Header2 theme={theme.theme}>Certificat</Header2>
                         <Button
                             theme={theme.theme}
                             onClick={handlePrint}
                             disabled={!isIframeLoaded}
                         >
                             <Printer className="h-4 w-4" />
-                            Print
+                            Imprimer
                         </Button>
                     </div>
 

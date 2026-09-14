@@ -1,0 +1,106 @@
+# Force Structuree - deploiement en production.
+#
+# A lancer DEPUIS ce dossier, sur le serveur :
+#     docker compose up -d --build
+#
+# Le "build context" est la racine du depot (..), parce que l'image doit
+# contenir NOS modifications : la charte compilee, les composants, les
+# photos. L'image officielle codelit/courselit-app ne les contient pas.
+#
+# Rien ici ne devient public tant que le nom de domaine ne pointe pas sur
+# le serveur.
+
+name: force-structuree
+
+services:
+    app:
+        build:
+            context: ..
+            dockerfile: services/app/Dockerfile
+        image: force-structuree-app:latest
+        environment:
+            - NODE_ENV=production
+            - PORT=3000
+
+            # Secret de session. Genere une fois pour toutes :
+            #     openssl rand -base64 32
+            - AUTH_SECRET=${AUTH_SECRET:?AUTH_SECRET manque dans le fichier .env}
+
+            # Base de donnees. Par defaut le conteneur mongo ci-dessous.
+            # Avec MongoDB Atlas : colle la chaine Atlas et passe
+            # DB_TRANSACTIONS a true (Atlas est un replica set).
+            - DB_CONNECTION_STRING=${DB_CONNECTION_STRING:-mongodb://root:${MONGO_PASSWORD:?MONGO_PASSWORD manque}@mongo/courselit?authSource=admin}
+            - DB_TRANSACTIONS=${DB_TRANSACTIONS:-false}
+
+            # Le compte administrateur, cree UNIQUEMENT au tout premier
+            # demarrage sur une base vide. Voir COMMENT-METTRE-EN-LIGNE.md.
+            - SUPER_ADMIN_EMAIL=${SUPER_ADMIN_EMAIL:?SUPER_ADMIN_EMAIL manque}
+
+            # Envoi des emails. SANS CES QUATRE LIGNES, PERSONNE NE PEUT SE
+            # CONNECTER EN LIGNE, PAS MEME TOI : le code de connexion part
+            # par email, il n'y a pas de mot de passe.
+            - EMAIL_HOST=${EMAIL_HOST:?EMAIL_HOST manque}
+            - EMAIL_USER=${EMAIL_USER:?EMAIL_USER manque}
+            - EMAIL_PASS=${EMAIL_PASS:?EMAIL_PASS manque}
+            - EMAIL_FROM=${EMAIL_FROM:?EMAIL_FROM manque}
+
+            # Stockage des fichiers (PDF, Excel, images televersees depuis
+            # le tableau de bord). Facultatif au depart.
+            - MEDIALIT_APIKEY=${MEDIALIT_APIKEY:-}
+            - MEDIALIT_SERVER=${MEDIALIT_SERVER:-}
+
+            - CACHE_DIR=/tmp
+        expose:
+            - "3000"
+        depends_on:
+            - mongo
+        restart: unless-stopped
+
+    # Base de donnees locale au serveur.
+    # Si tu prends MongoDB Atlas, commente tout ce bloc ET la ligne
+    # "depends_on" ci-dessus : les sauvegardes seront gerees par Atlas.
+    mongo:
+        image: mongo:7
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:?MONGO_PASSWORD manque}
+        volumes:
+            - mongo-data:/data/db
+        restart: unless-stopped
+
+    # HTTPS automatique. Caddy demande le certificat a Let's Encrypt tout
+    # seul, le renouvelle tout seul, et redirige http vers https.
+    proxy:
+        image: caddy:2-alpine
+        ports:
+            - "80:80"
+            - "443:443"
+        environment:
+            - SITE_DOMAIN=${SITE_DOMAIN:?SITE_DOMAIN manque}
+        volumes:
+            - ./Caddyfile:/etc/caddy/Caddyfile:ro
+            - caddy-data:/data
+            - caddy-config:/config
+        depends_on:
+            - app
+        restart: unless-stopped
+
+        # Le point qui a fait renvoyer 404 a la page d'accueil pendant
+        # l'essai en production. CourseLit fabrique ses pages en
+        # s'interrogeant lui-meme par HTTP, a l'adresse que le visiteur a
+        # utilisee. Depuis l'interieur du conteneur, « forcestructuree.fr »
+        # ne designe rien : l'appel echoue et la page n'existe plus.
+        #
+        # Cet alias fait pointer le nom de domaine, a l'interieur du
+        # reseau Docker, vers ce proxy. L'application se joint donc
+        # elle-meme sans sortir sur internet, et le certificat reste
+        # valide puisque c'est bien le nom attendu.
+        networks:
+            default:
+                aliases:
+                    - ${SITE_DOMAIN}
+
+volumes:
+    mongo-data:
+    caddy-data:
+    caddy-config:

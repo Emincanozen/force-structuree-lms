@@ -104,6 +104,26 @@ export function TextRenderer({ json, className, theme }: TextRendererProps) {
                         <code>{children}</code>
                     </pre>
                 ),
+                // Le rendu par defaut de Tiptap emet les attributs HTML
+                // "colspan" / "rowspan", que React refuse en minuscules et
+                // signale dans la console. On rend donc les cellules
+                // nous-memes, avec les proprietes React attendues.
+                tableCell: ({ node, children }) => (
+                    <td
+                        colSpan={node?.attrs?.colspan ?? undefined}
+                        rowSpan={node?.attrs?.rowspan ?? undefined}
+                    >
+                        {children}
+                    </td>
+                ),
+                tableHeader: ({ node, children }) => (
+                    <th
+                        colSpan={node?.attrs?.colspan ?? undefined}
+                        rowSpan={node?.attrs?.rowspan ?? undefined}
+                    >
+                        {children}
+                    </th>
+                ),
             },
             markMapping: {
                 link: ({ mark, children, node }) => {

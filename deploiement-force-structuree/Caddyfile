@@ -1,0 +1,20 @@
+# HTTPS automatique pour le domaine indique dans .env (SITE_DOMAIN).
+#
+# Tant que le domaine ne pointe pas sur ce serveur, Caddy n'obtiendra
+# aucun certificat : c'est normal, et c'est la preuve que rien n'est
+# encore public.
+
+{$SITE_DOMAIN} {
+    encode zstd gzip
+
+    # Mot de passe provisoire pendant la phase de test.
+    # Decommente ces trois lignes pour que le site ne soit visible que de
+    # toi. Le mot de passe se genere avec :
+    #     docker compose run --rm proxy caddy hash-password
+    #
+    # basicauth {
+    #     admin LE_HASH_RENVOYE_PAR_LA_COMMANDE
+    # }
+
+    reverse_proxy app:3000
+}

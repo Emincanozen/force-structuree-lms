@@ -62,7 +62,7 @@ export interface CheckoutScreenProps {
 }
 
 const formSchema = z.object({
-    selectedPlan: z.string().min(1, "Please select a plan"),
+    selectedPlan: z.string().min(1, "Choisis une formule"),
     joiningReason: z.string().optional(),
 });
 
@@ -131,7 +131,7 @@ export default function Checkout({
                 }
             } catch (err) {
                 toast({
-                    title: "Error",
+                    title: "Erreur",
                     description: err.message,
                     variant: "destructive",
                 });
@@ -247,7 +247,7 @@ export default function Checkout({
             }
         } catch (err) {
             toast({
-                title: "Error",
+                title: "Erreur",
                 description: err.message,
                 variant: "destructive",
             });
@@ -282,7 +282,7 @@ export default function Checkout({
             router.replace(`/checkout/verify?id=${verifyResponse.purchaseId}`);
         } catch (err: any) {
             toast({
-                title: "Error",
+                title: "Erreur",
                 description: err.message,
                 variant: "destructive",
             });
@@ -357,14 +357,14 @@ export default function Checkout({
                                     )}
                                     {membershipStatus ===
                                     Constants.MembershipStatus.ACTIVE
-                                        ? "Already owned"
-                                        : "Access Denied"}
+                                        ? "Déjà en ta possession"
+                                        : "Accès refusé"}
                                 </Header3>
                                 <Text1 theme={theme.theme}>
                                     {membershipStatus ===
                                     Constants.MembershipStatus.ACTIVE
-                                        ? "You already have access to this resource."
-                                        : "You have been rejected and cannot proceed with the checkout."}
+                                        ? "Tu as déjà accès à ce contenu."
+                                        : "Ton accès a été refusé : la commande ne peut pas aboutir."}
                                 </Text1>
                                 {membershipStatus ===
                                     Constants.MembershipStatus.ACTIVE && (
@@ -390,7 +390,7 @@ export default function Checkout({
                                         }}
                                         theme={theme.theme}
                                     >
-                                        Go to the resource
+                                        Aller au contenu
                                     </Button>
                                 )}
                             </div>
@@ -413,13 +413,13 @@ export default function Checkout({
                                         <div className="text-sm space-y-2">
                                             <Text1 theme={theme.theme}>
                                                 <span className="font-semibold">
-                                                    Email:
+                                                    Email :
                                                 </span>{" "}
                                                 {userEmail}
                                             </Text1>
                                             <Text1 theme={theme.theme}>
                                                 <span className="font-semibold">
-                                                    Name:
+                                                    Nom :
                                                 </span>{" "}
                                                 {userName}
                                             </Text1>
@@ -433,7 +433,7 @@ export default function Checkout({
                                     >
                                         <div className="mb-6 space-y-4">
                                             <Header3 theme={theme.theme}>
-                                                Select Your Plan
+                                                Choisis ta formule
                                             </Header3>
                                             <FormField
                                                 control={form.control}
@@ -515,13 +515,13 @@ export default function Checkout({
                                                         <FormItem className="mb-6">
                                                             <FormLabel className="text-sm font-semibold mb-4">
                                                                 {product.joiningReasonText ||
-                                                                    "Reason for joining"}
+                                                                    "Pourquoi tu veux rejoindre"}
                                                             </FormLabel>
                                                             <FormControl>
                                                                 <textarea
                                                                     className="w-full border rounded p-2"
                                                                     {...field}
-                                                                    placeholder="Please provide your reason for joining"
+                                                                    placeholder="Explique en une phrase pourquoi tu veux rejoindre"
                                                                 />
                                                             </FormControl>
                                                             <FormMessage />
@@ -548,8 +548,8 @@ export default function Checkout({
                                             theme={theme.theme}
                                         >
                                             {isSubmitting
-                                                ? "Working..."
-                                                : "Complete Purchase"}
+                                                ? "Un instant..."
+                                                : "Valider ma commande"}
                                         </Button>
                                     </form>
                                 </FormProvider>

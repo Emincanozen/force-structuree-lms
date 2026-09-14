@@ -253,7 +253,7 @@ export function NotificationsViewer() {
                     {unreadCount > 0 && (
                         <span className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full" />
                     )}
-                    <span className="sr-only">View notifications</span>
+                    <span className="sr-only">Voir les notifications</span>
                 </Button>
             </PopoverTrigger>
             <PopoverContent

@@ -34,8 +34,11 @@ import RecaptchaScriptLoader from "@components/recaptcha-script-loader";
 import ExternalLoginButton from "@/components/auth/external-login-button";
 
 const loginFormSchema = z.object({
-    email: z.string().email("Invalid email address"),
-    otp: z.string().min(6, "OTP must be at least 6 characters").optional(),
+    email: z.string().email("Adresse email invalide"),
+    otp: z
+        .string()
+        .min(6, "Le code doit contenir au moins 6 caractères")
+        .optional(),
 });
 
 type LoginStep = "email" | "otp" | "complete";
@@ -147,7 +150,7 @@ export function LoginForm({
         if (!emailValue || !/\S+@\S+\.\S+/.test(emailValue)) {
             form.setError("email", {
                 type: "manual",
-                message: "Please enter a valid email address",
+                message: "Entre une adresse email valide",
             });
             return;
         }
@@ -234,7 +237,7 @@ export function LoginForm({
                                                 <Input
                                                     theme={theme.theme}
                                                     type="email"
-                                                    placeholder="Email address"
+                                                    placeholder="Adresse email"
                                                     {...field}
                                                 />
                                             </FormControl>
@@ -262,7 +265,7 @@ export function LoginForm({
                                                     href="/p/privacy"
                                                     className="underline"
                                                 >
-                                                    Privacy Policy
+                                                    politique de confidentialité
                                                 </PageLink>
                                             </Link>
                                         </Caption>
@@ -274,7 +277,7 @@ export function LoginForm({
                                     disabled={loading}
                                     theme={theme.theme}
                                 >
-                                    Continue
+                                    Continuer
                                 </Button>
                             </>
                         )}
@@ -293,7 +296,7 @@ export function LoginForm({
                                                 <Input
                                                     theme={theme.theme}
                                                     type="text"
-                                                    placeholder="Enter OTP"
+                                                    placeholder="Code reçu par email"
                                                     {...field}
                                                 />
                                             </FormControl>
@@ -308,7 +311,7 @@ export function LoginForm({
                                     disabled={loading}
                                     theme={theme.theme}
                                 >
-                                    Verify OTP
+                                    Valider le code
                                 </Button>
                             </>
                         )}
@@ -332,7 +335,9 @@ export function LoginForm({
             <Caption theme={theme.theme} className="text-center">
                 {LOGIN_FORM_DISCLAIMER}
                 <Link href="/p/terms">
-                    <span className="underline">Terms</span>
+                    <span className="underline">
+                        conditions générales de vente
+                    </span>
                 </Link>
             </Caption>
             <RecaptchaScriptLoader />

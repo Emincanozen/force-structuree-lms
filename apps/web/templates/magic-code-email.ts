@@ -16,11 +16,11 @@ html
                 text-align: center;
             }
     body
-        p   #{code} is your verification code.
+        p   Ton code de connexion : <strong> #{code} </strong>
         p
-            strong IMPORTANT:
-            |   Do not share this email with anyone as anyone can log in to your
-            |   account using the link in this email.
+            strong À garder pour toi :
+            |   ce code donne accès à ton compte. Ne le transmets
+            |   à personne.
         if !hideCourseLitBranding
             div(class="courselit-branding-container")
                 a(

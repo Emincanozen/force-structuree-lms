@@ -13,6 +13,12 @@ import { PaymentPlan, Constants } from "@courselit/common-models";
 import { getPlanPrice } from "@ui-lib/utils";
 import { CHECKOUT_PAGE_ORDER_SUMMARY } from "@ui-config/strings";
 
+// Affichage a la francaise : le symbole suit le montant et la decimale
+// est une virgule (97,00 EUR, et non EUR97.00).
+function prixFr(montant: number, symbole: string): string {
+    return `${montant.toFixed(2).replace(".", ",")} ${symbole}`;
+}
+
 const { PaymentPlanType: paymentPlanType } = Constants;
 
 function getPlanDescription(plan: PaymentPlan, currencySymbol: string): string {
@@ -22,16 +28,16 @@ function getPlanDescription(plan: PaymentPlan, currencySymbol: string): string {
 
     switch (plan.type) {
         case paymentPlanType.FREE:
-            return "Free plan";
+            return "Accès gratuit";
         case paymentPlanType.ONE_TIME:
-            return `One-time payment of ${currencySymbol}${plan.oneTimeAmount?.toFixed(2)}`;
+            return `Paiement unique de ${prixFr(plan.oneTimeAmount ?? 0, currencySymbol)}`;
         case paymentPlanType.SUBSCRIPTION:
             if (plan.subscriptionYearlyAmount) {
-                return `Billed annually at ${currencySymbol}${plan.subscriptionYearlyAmount.toFixed(2)}`;
+                return `Facturé une fois par an : ${prixFr(plan.subscriptionYearlyAmount, currencySymbol)}`;
             }
-            return `${currencySymbol}${plan.subscriptionMonthlyAmount?.toFixed(2)} per month`;
+            return `${prixFr(plan.subscriptionMonthlyAmount ?? 0, currencySymbol)} par mois`;
         case paymentPlanType.EMI:
-            return `${currencySymbol}${plan.emiAmount?.toFixed(2)} per month for ${plan.emiTotalInstallments} months`;
+            return `${prixFr(plan.emiAmount ?? 0, currencySymbol)} par mois pendant ${plan.emiTotalInstallments} mois`;
         default:
             return "N/A";
     }
@@ -90,18 +96,20 @@ export function MobileOrderSummary({
                                     }
                                     theme={theme.theme}
                                 >
-                                    {isOrderSummaryOpen ? "Hide" : "Show"} order
-                                    summary
+                                    {isOrderSummaryOpen ? "Masquer" : "Voir"} le
+                                    récapitulatif
                                     <ChevronUp
                                         className={`h-4 w-4 ml-1 transition-transform duration-200 ${isOrderSummaryOpen ? "" : "rotate-180"}`}
                                     />
                                 </Text1>
                             </div>
                             <div className="font-medium flex items-center">
-                                {currencySymbol}
-                                {getPlanPrice(
-                                    selectedPlan || paymentPlans[0],
-                                ).amount.toFixed(2)}
+                                {prixFr(
+                                    getPlanPrice(
+                                        selectedPlan || paymentPlans[0],
+                                    ).amount,
+                                    currencySymbol,
+                                )}
                                 <span className="text-sm text-muted-foreground ml-1">
                                     {
                                         getPlanPrice(
@@ -118,7 +126,7 @@ export function MobileOrderSummary({
                         onOpenChange={setIsOrderSummaryOpen}
                     >
                         <CollapsibleTrigger className="sr-only">
-                            Toggle order summary
+                            Afficher ou masquer le récapitulatif
                         </CollapsibleTrigger>
                         <CollapsibleContent
                             style={{
@@ -160,14 +168,16 @@ export function MobileOrderSummary({
                                             }}
                                         >
                                             <Header3 theme={theme.theme}>
-                                                Total
+                                                Total à payer
                                             </Header3>
                                             <div className="text-right flex items-center">
                                                 <Header4 className="font-medium">
-                                                    {currencySymbol}
-                                                    {getPlanPrice(
-                                                        selectedPlan,
-                                                    ).amount.toFixed(2)}
+                                                    {prixFr(
+                                                        getPlanPrice(
+                                                            selectedPlan,
+                                                        ).amount,
+                                                        currencySymbol,
+                                                    )}
                                                 </Header4>
                                                 <Text1 theme={theme.theme}>
                                                     {
@@ -236,11 +246,13 @@ export function DesktopOrderSummary({
                             }}
                         >
                             <div className="flex justify-between items-center">
-                                <Header4 theme={theme.theme}>Total</Header4>
                                 <Header4 theme={theme.theme}>
-                                    {currencySymbol}
-                                    {getPlanPrice(selectedPlan).amount.toFixed(
-                                        2,
+                                    Total à payer
+                                </Header4>
+                                <Header4 theme={theme.theme}>
+                                    {prixFr(
+                                        getPlanPrice(selectedPlan).amount,
+                                        currencySymbol,
                                     )}
                                     <span className="text-sm text-muted-foreground ml-1">
                                         {getPlanPrice(selectedPlan).period}

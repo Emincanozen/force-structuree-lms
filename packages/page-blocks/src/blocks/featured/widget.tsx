@@ -168,8 +168,11 @@ function getBadgeText(course: Course, siteinfo: SiteInfo) {
 
     return (
         <>
-            {getSymbolFromCurrency(siteinfo.currencyISOCode || "USD")}
-            <span>{amount.toFixed(2)}</span>
+            {/* Prix a la francaise : 97,00 EUR et non EUR97.00. */}
+            <span>{amount.toFixed(2).replace(".", ",")}</span>
+            <span className="ml-1">
+                {getSymbolFromCurrency(siteinfo.currencyISOCode || "USD")}
+            </span>
             <span className="ml-1">{period}</span>
         </>
     );

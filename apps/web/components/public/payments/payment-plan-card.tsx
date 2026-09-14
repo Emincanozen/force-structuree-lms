@@ -15,6 +15,12 @@ import { Star, Package } from "lucide-react";
 import { PaymentPlan, Course, Constants } from "@courselit/common-models";
 import { getPlanPrice } from "@ui-lib/utils";
 
+// Affichage a la francaise : le symbole suit le montant et la decimale
+// est une virgule (97,00 EUR, et non EUR97.00).
+function prixFr(montant: number, symbole: string): string {
+    return `${montant.toFixed(2).replace(".", ",")} ${symbole}`;
+}
+
 const { PaymentPlanType: paymentPlanType } = Constants;
 
 export interface PaymentPlanCardProps {
@@ -92,13 +98,13 @@ export function PaymentPlanCard({
                                             className="flex items-center gap-1"
                                         >
                                             <Star className="w-3 h-3" />
-                                            Recommended
+                                            Recommandé
                                         </Badge>
                                     )}
                                     {/* {isRecommended && (
                                         <div className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
                                             <Star className="w-3 h-3" />
-                                            Recommended
+                                            Recommandé
                                         </div>
                                     )} */}
                                 </div>
@@ -111,7 +117,7 @@ export function PaymentPlanCard({
                                     {isRecommended && (
                                         <div className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
                                             <Star className="w-3 h-3" />
-                                            Recommended
+                                            Recommandé
                                         </div>
                                     )}
                                 </div>
@@ -120,8 +126,10 @@ export function PaymentPlanCard({
                             <div className="mb-4">
                                 <div className="flex items-baseline gap-1">
                                     <Header3 theme={theme.theme}>
-                                        {currencySymbol}
-                                        {planPrice.amount.toFixed(2)}
+                                        {prixFr(
+                                            planPrice.amount,
+                                            currencySymbol,
+                                        )}
                                     </Header3>
                                     {planPrice.period && (
                                         <Text2
@@ -137,7 +145,7 @@ export function PaymentPlanCard({
                                         theme={theme.theme}
                                         className="text-muted-foreground text-sm"
                                     >
-                                        one-time
+                                        paiement unique
                                     </Text2>
                                 )}
                             </div>
@@ -148,7 +156,7 @@ export function PaymentPlanCard({
                                         <Package className="w-4 h-4 text-muted-foreground" />
                                         <Text2 theme={theme.theme}>
                                             {planIncludedProducts.length}{" "}
-                                            products included
+                                            formations incluses
                                         </Text2>
                                     </div>
                                 )}

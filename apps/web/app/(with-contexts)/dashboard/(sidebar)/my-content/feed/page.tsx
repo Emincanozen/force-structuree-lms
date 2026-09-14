@@ -377,7 +377,7 @@ export default function Page() {
                         controlsList="nodownload"
                         onContextMenu={(e) => e.preventDefault()}
                     >
-                        Your browser does not support the video tag.
+                        Ton navigateur ne sait pas lire cette vidéo.
                     </video>
                 ) : null;
             case "youtube": {

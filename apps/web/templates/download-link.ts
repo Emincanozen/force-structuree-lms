@@ -32,17 +32,17 @@ html
                 text-align: center;
             }
     body
-        p   Thank you for signing up for #{courseName}.
+        p   Merci pour ta commande : #{courseName}.
         div(class="cta-container") 
             a(
                 href=\`\${downloadLink}\`
                 class="cta"
-            ) Download now
-        p   Best,
+            ) Télécharger
+        p   À bientôt,
         p   #{name}
         p 
-            |   To access all of your content, 
-            |   #[a(href=\`\${loginLink}\`) log in] here.
+            |   Pour retrouver tout ton contenu, 
+            |   #[a(href=\`\${loginLink}\`) connecte-toi ici].
         if !hideCourseLitBranding
             div(class="courselit-branding-container")
                 a(
