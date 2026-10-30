@@ -1,3 +1,4 @@
+import { BUTTON_SAVE } from "@ui-config/strings";
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
@@ -189,7 +190,7 @@ describe("ProfilePage", () => {
             },
         });
 
-        fireEvent.click(screen.getByRole("button", { name: "Save" }));
+        fireEvent.click(screen.getByRole("button", { name: BUTTON_SAVE }));
 
         await waitFor(() => {
             expect(mockSetProfile).toHaveBeenCalledTimes(1);

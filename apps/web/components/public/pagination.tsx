@@ -1,3 +1,4 @@
+import { publicPagination } from "@/config/strings";
 import {
     Pagination,
     PaginationContent,
@@ -47,13 +48,15 @@ export function PaginationControls({
                                 : ""
                         }
                     >
-                        <Caption theme={theme}>Précédent</Caption>
+                        <Caption theme={theme}>
+                            {publicPagination.previous}
+                        </Caption>
                     </PaginationPrevious>
                 </PaginationItem>
 
                 <div>
                     <Text2 theme={theme}>
-                        {currentPage} sur {totalPages}
+                        {publicPagination.page(currentPage, totalPages)}
                     </Text2>
                 </div>
 
@@ -80,7 +83,7 @@ export function PaginationControls({
                                 : ""
                         }
                     >
-                        <Caption theme={theme}>Suivant</Caption>
+                        <Caption theme={theme}>{publicPagination.next}</Caption>
                     </PaginationNext>
                 </PaginationItem>
             </PaginationContent>

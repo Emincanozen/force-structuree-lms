@@ -106,7 +106,7 @@ MEDIALIT_SERVER=medialit_server_location
 
 ## Writing your own widget
 
-You can add additional functionality to your application via building your own widgets. Have a look at [this](widgets.md) document.
+You can add additional functionality to your application via building your own widgets. Have a look at the reusable blocks in `packages/page-blocks` and primitives in `packages/page-primitives` document.
 
 ## Environment variables
 

@@ -51,17 +51,17 @@ graph TD
     C --> E["generateMetadata()<br/>getFullSiteSetup() + getPage()"]
 ```
 
-`getFullSiteSetup()` itself makes **2 sequential HTTP requests** (first [getSiteInfo](file:///Users/rajat/dev/projects/courselit/apps/web/ui-lib/utils.ts#L129-L170), then [getTheme + getPage + getFeatures](file:///Users/rajat/dev/projects/courselit/apps/web/ui-lib/utils.ts#L184-L217)). This means:
+`getFullSiteSetup()` itself makes **2 sequential HTTP requests** (first [getSiteInfo](../../apps/web/ui-lib/utils.ts#L129-L170), then [getTheme + getPage + getFeatures](../../apps/web/ui-lib/utils.ts#L184-L217)). This means:
 
-| Layer                                                                                                                                      | Calls to `getFullSiteSetup` | HTTP Requests |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------: | :-----------: |
-| [Root layout.tsx](file:///Users/rajat/dev/projects/courselit/apps/web/app/layout.tsx#L52)                                                  |              1              |       2       |
-| [Root generateMetadata](file:///Users/rajat/dev/projects/courselit/apps/web/app/layout.tsx#L16)                                            |       1 (getSiteInfo)       |       1       |
-| [(with-contexts)/layout.tsx](<file:///Users/rajat/dev/projects/courselit/apps/web/app/(with-contexts)/layout.tsx#L22>)                     |              1              |       2       |
-| [(with-layout)/layout.tsx](<file:///Users/rajat/dev/projects/courselit/apps/web/app/(with-contexts)/(with-layout)/layout.tsx#L12>)         |              1              |       2       |
-| [p/[id]/page.tsx](<file:///Users/rajat/dev/projects/courselit/apps/web/app/(with-contexts)/(with-layout)/p/[id]/page.tsx#L80-L83>)         |              1              |       2       |
-| [p/[id]/generateMetadata](<file:///Users/rajat/dev/projects/courselit/apps/web/app/(with-contexts)/(with-layout)/p/[id]/page.tsx#L21-L24>) |              1              |       2       |
-| **Total per page**                                                                                                                         |            **6**            |    **~11**    |
+| Layer                                                                                                 | Calls to `getFullSiteSetup` | HTTP Requests |
+| ----------------------------------------------------------------------------------------------------- | :-------------------------: | :-----------: |
+| [Root layout.tsx](../../apps/web/app/layout.tsx#L52)                                                  |              1              |       2       |
+| [Root generateMetadata](../../apps/web/app/layout.tsx#L16)                                            |       1 (getSiteInfo)       |       1       |
+| [(with-contexts)/layout.tsx](<../../apps/web/app/(with-contexts)/layout.tsx#L22>)                     |              1              |       2       |
+| [(with-layout)/layout.tsx](<../../apps/web/app/(with-contexts)/(with-layout)/layout.tsx#L12>)         |              1              |       2       |
+| [p/[id]/page.tsx](<../../apps/web/app/(with-contexts)/(with-layout)/p/[id]/page.tsx#L80-L83>)         |              1              |       2       |
+| [p/[id]/generateMetadata](<../../apps/web/app/(with-contexts)/(with-layout)/p/[id]/page.tsx#L21-L24>) |              1              |       2       |
+| **Total per page**                                                                                    |            **6**            |    **~11**    |
 
 ### The Fix
 
@@ -95,7 +95,7 @@ This **single change** reduces ~11 HTTP requests per page down to **~3** (one fo
 
 ### The Problem
 
-The [proxy function in proxy.ts](file:///Users/rajat/dev/projects/courselit/apps/web/proxy.ts#L5-L89) runs on **every single request** and fetches `/verify-domain`. While the subscription check is already smart (it only calls the external service once per 24 hours via `checkSubscriptionStatusAfter`), the [verify-domain route](file:///Users/rajat/dev/projects/courselit/apps/web/app/verify-domain/route.ts#L40-L198) still does this on **every request**:
+The [proxy function in proxy.ts](../../apps/web/proxy.ts#L5-L89) runs on **every single request** and fetches `/verify-domain`. While the subscription check is already smart (it only calls the external service once per 24 hours via `checkSubscriptionStatusAfter`), the [verify-domain route](../../apps/web/app/verify-domain/route.ts#L40-L198) still does this on **every request**:
 
 1. `await connectToDatabase()` — connection setup overhead
 2. `await getDomain(host)` — MongoDB query (`DomainModel.findOne`)
@@ -197,14 +197,14 @@ await redis.del(`site:${ctx.subdomain._id}:settings`);
 
 Several public-facing pages that could be Server Components are marked `"use client"`:
 
-| File                                                                                                                                        | Issue                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| [client-side-page.tsx](<file:///Users/rajat/dev/projects/courselit/apps/web/app/(with-contexts)/(with-layout)/p/[id]/client-side-page.tsx>) | Renders entire page layout client-side. Only uses `useContext`. |
-| [home-page-layout.tsx](<file:///Users/rajat/dev/projects/courselit/apps/web/app/(with-contexts)/(with-layout)/home-page-layout.tsx>)        | Same pattern — wraps the entire homepage in `useContext` calls. |
-| [blog/page.tsx](<file:///Users/rajat/dev/projects/courselit/apps/web/app/(with-contexts)/(with-layout)/blog/page.tsx>)                      | Pages list is fully client-rendered.                            |
-| [products/page.tsx](<file:///Users/rajat/dev/projects/courselit/apps/web/app/(with-contexts)/(with-layout)/products/page.tsx>)              | Same as blog.                                                   |
-| [checkout/page.tsx](<file:///Users/rajat/dev/projects/courselit/apps/web/app/(with-contexts)/(with-layout)/checkout/page.tsx>)              | Same pattern.                                                   |
-| [layout-with-context.tsx](<file:///Users/rajat/dev/projects/courselit/apps/web/app/(with-contexts)/layout-with-context.tsx>)                | The entire context provider tree is client-side.                |
+| File                                                                                                   | Issue                                                           |
+| ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- |
+| [client-side-page.tsx](<../../apps/web/app/(with-contexts)/(with-layout)/p/[id]/client-side-page.tsx>) | Renders entire page layout client-side. Only uses `useContext`. |
+| [home-page-layout.tsx](<../../apps/web/app/(with-contexts)/(with-layout)/home-page-layout.tsx>)        | Same pattern — wraps the entire homepage in `useContext` calls. |
+| [blog/page.tsx](<../../apps/web/app/(with-contexts)/(with-layout)/blog/page.tsx>)                      | Pages list is fully client-rendered.                            |
+| [products/page.tsx](<../../apps/web/app/(with-contexts)/(with-layout)/products/page.tsx>)              | Same as blog.                                                   |
+| [checkout/page.tsx](<../../apps/web/app/(with-contexts)/(with-layout)/checkout/page.tsx>)              | Same pattern.                                                   |
+| [layout-with-context.tsx](<../../apps/web/app/(with-contexts)/layout-with-context.tsx>)                | The entire context provider tree is client-side.                |
 
 **The real issue**: Because `layout-with-context.tsx` is a `"use client"` boundary, **every child component** inherits the client boundary. This means `BaseLayout` and all its page blocks — which could potentially render as server components — are bundled as client JS.
 
@@ -227,7 +227,7 @@ This is a larger refactor but dramatically reduces the initial JS payload for pu
 
 ### The Problem
 
-The [root layout](file:///Users/rajat/dev/projects/courselit/apps/web/app/layout.tsx#L63) loads **21 font families** on every single page via CSS variable declarations:
+The [root layout](../../apps/web/app/layout.tsx#L63) loads **21 font families** on every single page via CSS variable declarations:
 
 ```tsx
 className={`${fonts.openSans.variable} ${fonts.montserrat.variable}

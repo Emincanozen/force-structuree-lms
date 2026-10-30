@@ -1,3 +1,10 @@
+import {
+    COURSE_DISCUSSIONS_VIEW_ALL,
+    COURSE_DISCUSSIONS_COMMENT_PLACEHOLDER,
+    COURSE_DISCUSSIONS_POST_COMMENT,
+    COURSE_DISCUSSIONS_REPLY_PLACEHOLDER,
+    COURSE_DISCUSSIONS_REPLY,
+} from "@ui-config/strings";
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import ProductDiscussionPanel from "../panel";
@@ -331,7 +338,7 @@ describe("ProductDiscussionPanel", () => {
         );
 
         expect(
-            screen.getByText("View all discussions").closest("a"),
+            screen.getByText(COURSE_DISCUSSIONS_VIEW_ALL).closest("a"),
         ).toHaveAttribute(
             "href",
             "/course/course-slug/course-1/discussions?preview=true&discussion=open&returnTo=%2Fdashboard%2Fproduct%2Fcourse-1",
@@ -406,10 +413,15 @@ describe("ProductDiscussionPanel", () => {
             expect(screen.getByText("Root comment")).toBeInTheDocument();
         });
 
-        fireEvent.change(screen.getByLabelText("Add a comment..."), {
-            target: { value: "A new comment" },
-        });
-        const postCommentButton = screen.getByText("Post Comment");
+        fireEvent.change(
+            screen.getByLabelText(COURSE_DISCUSSIONS_COMMENT_PLACEHOLDER),
+            {
+                target: { value: "A new comment" },
+            },
+        );
+        const postCommentButton = screen.getByText(
+            COURSE_DISCUSSIONS_POST_COMMENT,
+        );
         await waitFor(() => {
             expect(postCommentButton).not.toBeDisabled();
         });
@@ -430,20 +442,30 @@ describe("ProductDiscussionPanel", () => {
             expect(screen.getByText("First reply")).toBeInTheDocument();
         });
 
-        const replyButtons = screen.getAllByRole("button", { name: /reply/i });
+        const replyButtons = screen.getAllByRole("button", {
+            name: new RegExp(COURSE_DISCUSSIONS_REPLY, "i"),
+        });
         fireEvent.click(replyButtons[1]);
         await waitFor(() => {
-            expect(screen.getByLabelText("Add a reply...")).toHaveFocus();
+            expect(
+                screen.getByLabelText(COURSE_DISCUSSIONS_REPLY_PLACEHOLDER),
+            ).toHaveFocus();
         });
         expect(scrollIntoView).toHaveBeenCalledWith({
             block: "center",
             behavior: "smooth",
         });
 
-        fireEvent.change(screen.getByLabelText("Add a reply..."), {
-            target: { value: "Replying to a reply" },
-        });
-        const postReplyButton = screen.getByText("Post Reply");
+        fireEvent.change(
+            screen.getByLabelText(COURSE_DISCUSSIONS_REPLY_PLACEHOLDER),
+            {
+                target: { value: "Replying to a reply" },
+            },
+        );
+        const postReplyButton = screen
+            .getByLabelText(COURSE_DISCUSSIONS_REPLY_PLACEHOLDER)
+            .closest("form")!
+            .querySelector<HTMLButtonElement>('button[type="submit"]')!;
         await waitFor(() => {
             expect(postReplyButton).not.toBeDisabled();
         });

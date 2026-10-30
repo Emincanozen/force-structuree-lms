@@ -1,3 +1,4 @@
+import { TOAST_TITLE_SUCCESS } from "@ui-config/strings";
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import ProductDiscussions from "../product-discussions";
@@ -81,7 +82,7 @@ describe("ProductDiscussions", () => {
         });
         expect(mockToast).toHaveBeenCalledWith(
             expect.objectContaining({
-                title: "Success",
+                title: TOAST_TITLE_SUCCESS,
             }),
         );
     });

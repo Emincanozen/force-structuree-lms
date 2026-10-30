@@ -1,3 +1,4 @@
+import { ENROLL_BUTTON_TEXT } from "@ui-config/strings";
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import ProductPage from "../page";
@@ -170,10 +171,9 @@ describe("Course introduction page", () => {
 
         expect(document.body).toHaveTextContent("$0");
         expect(screen.getByText("free")).toBeInTheDocument();
-        expect(screen.getByRole("link", { name: "Buy now" })).toHaveAttribute(
-            "href",
-            "/checkout?type=course&id=course-1",
-        );
+        expect(
+            screen.getByRole("link", { name: ENROLL_BUTTON_TEXT }),
+        ).toHaveAttribute("href", "/checkout?type=course&id=course-1");
     });
 
     it("does not show price and checkout CTA for enrolled viewers", async () => {
@@ -190,7 +190,7 @@ describe("Course introduction page", () => {
         });
 
         expect(
-            screen.queryByRole("link", { name: "Buy now" }),
+            screen.queryByRole("link", { name: ENROLL_BUTTON_TEXT }),
         ).not.toBeInTheDocument();
     });
 });

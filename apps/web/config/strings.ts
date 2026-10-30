@@ -176,3 +176,9 @@ export const internal = {
     default_email_sequence_name: "Untitled Sequence",
     joining_reason_creator: "Joined as creator",
 };
+
+export const publicPagination = {
+    previous: "Précédent",
+    next: "Suivant",
+    page: (current: number, total: number) => `${current} sur ${total}`,
+};

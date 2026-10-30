@@ -68,3 +68,7 @@ apps/web/public/telechargements/
 # Sauvegardes de la base : elles contiennent les comptes clients.
 *.archive
 sauvegardes/
+
+# Les environnements locaux ne font pas partie des sources partageables.
+**/.env
+**/.env.local

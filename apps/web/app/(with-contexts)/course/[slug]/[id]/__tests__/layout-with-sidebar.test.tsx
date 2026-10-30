@@ -1,3 +1,7 @@
+import {
+    PREVIEW_COURSE_MENU_ITEM,
+    SIDEBAR_TEXT_COURSE_DISCUSSIONS,
+} from "@ui-config/strings";
 let mockPathname = "/course/test-course/course-1";
 let mockSearchParams = new URLSearchParams();
 let mockIsEnrolled = true;
@@ -917,7 +921,7 @@ describe("Course viewer layout", () => {
             </ProductPage>,
         );
 
-        expect(screen.getByText("Preview")).toBeInTheDocument();
+        expect(screen.getByText(PREVIEW_COURSE_MENU_ITEM)).toBeInTheDocument();
     });
 
     it("shows the discussions sidebar item only when discussions are enabled", () => {
@@ -953,7 +957,7 @@ describe("Course viewer layout", () => {
                 course,
                 profile,
                 "/course/test-course/course-1",
-            ).some((item) => item.title === "Discussions"),
+            ).some((item) => item.title === SIDEBAR_TEXT_COURSE_DISCUSSIONS),
         ).toBe(false);
 
         expect(
@@ -961,7 +965,7 @@ describe("Course viewer layout", () => {
                 { ...course, discussions: true } as CourseFrontend,
                 profile,
                 "/course/test-course/course-1/discussions",
-            ).find((item) => item.title === "Discussions"),
+            ).find((item) => item.title === SIDEBAR_TEXT_COURSE_DISCUSSIONS),
         ).toMatchObject({
             href: "/course/test-course/course-1/discussions",
             isActive: true,
@@ -993,7 +997,7 @@ describe("Course viewer layout", () => {
                 course,
                 {} as Profile,
                 "/course/test-course/course-1/discussions",
-            ).some((item) => item.title === "Discussions"),
+            ).some((item) => item.title === SIDEBAR_TEXT_COURSE_DISCUSSIONS),
         ).toBe(false);
 
         render(
@@ -1005,7 +1009,9 @@ describe("Course viewer layout", () => {
         );
 
         expect(screen.getByText("Public lesson body")).toBeInTheDocument();
-        expect(screen.queryByLabelText("Discussions")).not.toBeInTheDocument();
+        expect(
+            screen.queryByLabelText(SIDEBAR_TEXT_COURSE_DISCUSSIONS),
+        ).not.toBeInTheDocument();
     });
 
     it("hides discussion sidebar and header actions for logged-in non-enrolled users", () => {
@@ -1038,7 +1044,7 @@ describe("Course viewer layout", () => {
                 course,
                 profile,
                 "/course/test-course/course-1/discussions",
-            ).some((item) => item.title === "Discussions"),
+            ).some((item) => item.title === SIDEBAR_TEXT_COURSE_DISCUSSIONS),
         ).toBe(false);
 
         render(
@@ -1048,7 +1054,9 @@ describe("Course viewer layout", () => {
         );
 
         expect(screen.getByText("Public lesson body")).toBeInTheDocument();
-        expect(screen.queryByLabelText("Discussions")).not.toBeInTheDocument();
+        expect(
+            screen.queryByLabelText(SIDEBAR_TEXT_COURSE_DISCUSSIONS),
+        ).not.toBeInTheDocument();
     });
 
     it("does not show a discussions header action on the course overview page", () => {
@@ -1076,7 +1084,9 @@ describe("Course viewer layout", () => {
             </ProductPage>,
         );
 
-        expect(screen.queryByLabelText("Discussions")).not.toBeInTheDocument();
+        expect(
+            screen.queryByLabelText(SIDEBAR_TEXT_COURSE_DISCUSSIONS),
+        ).not.toBeInTheDocument();
     });
 
     it("does not show a discussions header action on the discussions hub page", () => {
@@ -1105,7 +1115,9 @@ describe("Course viewer layout", () => {
             </ProductPage>,
         );
 
-        expect(screen.queryByLabelText("Discussions")).not.toBeInTheDocument();
+        expect(
+            screen.queryByLabelText(SIDEBAR_TEXT_COURSE_DISCUSSIONS),
+        ).not.toBeInTheDocument();
     });
 
     it("opens the discussion panel from lesson pages", () => {
@@ -1134,7 +1146,9 @@ describe("Course viewer layout", () => {
             </ProductPage>,
         );
 
-        expect(screen.getByLabelText("Discussions")).toHaveAttribute(
+        expect(
+            screen.getByLabelText(SIDEBAR_TEXT_COURSE_DISCUSSIONS),
+        ).toHaveAttribute(
             "href",
             "/course/test-course/course-1/lesson-1?discussion=open",
         );
@@ -1169,7 +1183,9 @@ describe("Course viewer layout", () => {
             </ProductPage>,
         );
 
-        expect(screen.getByLabelText("Discussions")).toHaveAttribute(
+        expect(
+            screen.getByLabelText(SIDEBAR_TEXT_COURSE_DISCUSSIONS),
+        ).toHaveAttribute(
             "href",
             "/course/test-course/course-1/lesson-1?preview=true&returnTo=%2Fdashboard%2Fproduct%2Fcourse-1&discussion=open",
         );

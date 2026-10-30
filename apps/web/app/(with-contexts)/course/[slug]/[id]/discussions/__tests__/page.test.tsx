@@ -1,3 +1,4 @@
+import { COURSE_DISCUSSIONS_TITLE, LOAD_MORE_TEXT } from "@ui-config/strings";
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import CourseDiscussionsPage from "../page";
@@ -213,7 +214,7 @@ describe("CourseDiscussionsPage", () => {
         });
 
         expect(
-            screen.getByRole("heading", { name: "Discussions" }),
+            screen.getByRole("heading", { name: COURSE_DISCUSSIONS_TITLE }),
         ).toHaveClass("max-w-full", "break-all");
         expect(FetchBuilder).toHaveBeenCalled();
         expect(getProduct).toHaveBeenCalledWith(
@@ -286,7 +287,7 @@ describe("CourseDiscussionsPage", () => {
             expect(screen.getByText("Text lesson")).toBeInTheDocument();
         });
 
-        fireEvent.click(screen.getByText("Load more"));
+        fireEvent.click(screen.getByText(LOAD_MORE_TEXT));
 
         await waitFor(() => {
             expect(screen.getByText("Video lesson")).toBeInTheDocument();
@@ -310,7 +311,7 @@ describe("CourseDiscussionsPage", () => {
         expect(getProduct).not.toHaveBeenCalled();
         expect(FetchBuilder).not.toHaveBeenCalled();
         expect(
-            screen.queryByRole("heading", { name: "Discussions" }),
+            screen.queryByRole("heading", { name: COURSE_DISCUSSIONS_TITLE }),
         ).not.toBeInTheDocument();
     });
 
@@ -328,7 +329,7 @@ describe("CourseDiscussionsPage", () => {
         expect(getProduct).not.toHaveBeenCalled();
         expect(FetchBuilder).not.toHaveBeenCalled();
         expect(
-            screen.queryByRole("heading", { name: "Discussions" }),
+            screen.queryByRole("heading", { name: COURSE_DISCUSSIONS_TITLE }),
         ).not.toBeInTheDocument();
     });
 

@@ -1,3 +1,4 @@
+import { publicPagination } from "@/config/strings";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { PaginationControls } from "../pagination";
 
@@ -24,7 +25,9 @@ describe("PaginationControls", () => {
             />,
         );
 
-        expect(screen.getByText("2 of 5")).toBeInTheDocument();
+        expect(
+            screen.getByText(publicPagination.page(2, 5)),
+        ).toBeInTheDocument();
     });
 
     it("disables previous button on first page", () => {
@@ -36,7 +39,9 @@ describe("PaginationControls", () => {
             />,
         );
 
-        const previousButton = screen.getByText("Previous").closest("a");
+        const previousButton = screen
+            .getByText(publicPagination.previous)
+            .closest("a");
         expect(previousButton).toHaveClass("pointer-events-none", "opacity-50");
     });
 
@@ -49,7 +54,7 @@ describe("PaginationControls", () => {
             />,
         );
 
-        const nextButton = screen.getByText("Next").closest("a");
+        const nextButton = screen.getByText(publicPagination.next).closest("a");
         expect(nextButton).toHaveClass("pointer-events-none", "opacity-50");
     });
 
@@ -62,7 +67,9 @@ describe("PaginationControls", () => {
             />,
         );
 
-        const previousButton = screen.getByText("Previous").closest("a");
+        const previousButton = screen
+            .getByText(publicPagination.previous)
+            .closest("a");
         fireEvent.click(previousButton!);
         expect(mockOnPageChange).toHaveBeenCalledWith(2);
     });
@@ -76,7 +83,7 @@ describe("PaginationControls", () => {
             />,
         );
 
-        const nextButton = screen.getByText("Next").closest("a");
+        const nextButton = screen.getByText(publicPagination.next).closest("a");
         fireEvent.click(nextButton!);
         expect(mockOnPageChange).toHaveBeenCalledWith(4);
     });
@@ -90,8 +97,10 @@ describe("PaginationControls", () => {
             />,
         );
 
-        const previousButton = screen.getByText("Previous").closest("a");
-        const nextButton = screen.getByText("Next").closest("a");
+        const previousButton = screen
+            .getByText(publicPagination.previous)
+            .closest("a");
+        const nextButton = screen.getByText(publicPagination.next).closest("a");
 
         expect(previousButton).toHaveClass("pointer-events-none", "opacity-50");
         expect(nextButton).toHaveClass("pointer-events-none", "opacity-50");
@@ -106,7 +115,9 @@ describe("PaginationControls", () => {
             />,
         );
 
-        const previousButton = screen.getByText("Previous").closest("a");
+        const previousButton = screen
+            .getByText(publicPagination.previous)
+            .closest("a");
         fireEvent.click(previousButton!);
         expect(mockOnPageChange).not.toHaveBeenCalled();
     });
