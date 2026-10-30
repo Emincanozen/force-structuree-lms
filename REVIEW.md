@@ -33,3 +33,5 @@ Le dernier relevé après résolution de Next.js compte une occurrence critique 
 ### Résultats logiciels
 
 Les 97 suites et 812 tests de la suite complète passent après correction des 19 échecs reproduits. Les paquets partagés compilent. Le contrôle TypeScript de l’application passe après mise à jour du résolveur ; les tests de formulaire ciblés passent également. Les 36 suites et 173 tests de l’interface passent aussi sur les dépendances finales. Le build complet Next.js est exercé séparément : son résultat ne se déduit pas des seuls paquets compilés.
+
+Le build complet de production Next.js 16.4.3 réussit également, génération des routes comprise. Lint, formatage et contrôles de commit réussissent. Ces résultats ne suppriment pas les alertes de dépendances restantes ni le besoin d’essais sur services réels.

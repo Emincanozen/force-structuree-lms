@@ -18,6 +18,7 @@ Utiliser Node.js 24 pour cette revue et la version déclarée de pnpm, **10.22.0
 
 ```sh
 corepack pnpm install --frozen-lockfile
+corepack pnpm --filter './packages/**' -r run build
 corepack pnpm test --runInBand
 corepack pnpm lint
 ```
