@@ -67,26 +67,26 @@ The repository is structured as a high-performance monorepo managed with `pnpm`:
 
 ```mermaid
 flowchart TD
-    subgraph Client_Applications["Applications (`apps/`)"]
-        Web["Next.js Web Portal (`apps/web`)<br/>React 19 • App Router • Tailwind"]
-        Worker["Queue Service (`apps/queue`)<br/>Background Workers • Drip • Emails"]
-        Docs["Documentation Portal (`apps/docs-new`)<br/>Fumadocs • Guides & API Reference"]
-        Demo["Offline Interactive Showcase (`demo/`)<br/>Dashboard • Video Player • Builder"]
+    subgraph Client_Applications["Applications (apps/)"]
+        Web["Next.js Web Portal (apps/web) - React 19 / App Router / Tailwind"]
+        Worker["Queue Service (apps/queue) - Background Workers / Drip / Emails"]
+        Docs["Documentation Portal (apps/docs-new) - Fumadocs / Guides & API Reference"]
+        Demo["Offline Interactive Showcase (demo/) - Dashboard / Video Player / Builder"]
     end
 
-    subgraph Core_Monorepo["Shared Packages (`packages/`)"]
-        CommonModels["`common-models` & `orm-models`<br/>Domain Schemas & Mongoose"]
-        CommonLogic["`common-logic`<br/>Resolvers • Permissions • Auth"]
-        UI_Library["`components-library`<br/>Primitives • Themes • Dialogs"]
-        PageBlocks["`page-blocks` & `page-primitives`<br/>Dynamic Modular Page Builder"]
-        Editors["`text-editor` & `email-editor`<br/>Rich Content Authoring"]
-        Utils["`utils`<br/>Sanitization • Query Builders"]
+    subgraph Core_Monorepo["Shared Packages (packages/)"]
+        CommonModels["Shared Packages: common-models and orm-models - Domain Schemas & Mongoose"]
+        CommonLogic["Business Logic: common-logic - Resolvers / Permissions / Auth"]
+        UI_Library["Design System: components-library - Primitives / Themes / Dialogs"]
+        PageBlocks["Modular Page Builder: page-blocks and page-primitives"]
+        Editors["Content Authoring: text-editor and email-editor"]
+        Utils["Utilities: utils - Sanitization & Query Builders"]
     end
 
     subgraph Data_Infra["Data & Infrastructure"]
-        MongoDB[("MongoDB Database<br/>Courses • Users • Purchases")]
+        MongoDB[("MongoDB Database - Courses / Users / Purchases")]
         QueueBroker["Redis / In-Memory Worker Queues"]
-        Caddy["Caddy Reverse Proxy<br/>Auto TLS / HTTPS"]
+        Caddy["Caddy Reverse Proxy - Auto TLS / HTTPS"]
     end
 
     Web --> CommonLogic
