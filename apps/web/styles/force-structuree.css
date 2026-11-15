@@ -1,0 +1,1115 @@
+/* Force Structuree - direction 1b " La barre ".
+   GENERE depuis outils-site/direction-1b.css : ne pas editer ici,
+   les modifications seraient perdues. Relancer compile_charte.py. */
+
+/* ======================================================================
+   Force Structuree  direction 1b " La barre "
+   Reprise de " Refonte - deux directions.dc.html " (bloc id="1b")
+   et des tokens de _ds/nocturne-.../styles.css.
+   Toutes les valeurs ci-dessous sont celles de la maquette.
+   ================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap");
+
+/* --------------- 1. Tokens Nocturne, verbatim --------------- */
+:root {
+    --color-bg: #161826;
+    --color-surface: #232532;
+    --color-text: #e9e9ed;
+    --color-accent: #9184d9;
+    --color-divider: color-mix(in srgb, #e9e9ed 16%, transparent);
+
+    --color-neutral-100: #f3f5fe;
+    --color-neutral-200: #e4e7f5;
+    --color-neutral-300: #cfd3e5;
+    --color-neutral-400: #b2b6ca;
+    --color-neutral-500: #9397ab;
+    --color-neutral-600: #75798c;
+    --color-neutral-700: #595d6c;
+    --color-neutral-800: #3f424d;
+    --color-neutral-900: #292b31;
+
+    --color-accent-200: #e7e5fe;
+    --color-accent-300: #d2cefd;
+    --color-accent-400: #b5abfc;
+    --color-accent-500: #968ae0;
+    --color-accent-700: #5d5294;
+    --color-accent-800: #423a6a;
+    --color-accent-900: #2b2741;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 14px;
+
+    --shadow-sm: 0 0 0 1px #3f424d;
+    --shadow-md: 0 0 0 1px #595d6c, 0 6px 18px rgba(0, 0, 0, 0.55);
+    --shadow-lg: 0 0 0 1px #9397ab, 0 16px 40px rgba(0, 0, 0, 0.65);
+
+    /* L'orange de la marque est reserve a l'action. */
+    --fs-action: #e8590c;
+    --fs-action-soft: #fdd4bb;
+    --fs-oswald: Oswald, "Arial Narrow", sans-serif;
+}
+
+/* ------- 2. Le theme de CourseLit repeint aux couleurs Nocturne -------
+   CourseLit expose ses couleurs en triplets HSL sur .courselit-theme.
+   On les remplace : aucun fichier source n'est touche pour la palette. */
+html .courselit-theme,
+.courselit-theme,
+:root {
+    --background: 232 26.7% 11.8% !important; /* #161826 */
+    --foreground: 240 10% 92.2% !important; /* #e9e9ed */
+    --card: 232 17.6% 16.7% !important; /* #232532 */
+    --card-foreground: 240 10% 92.2% !important;
+    --popover: 232 17.6% 16.7% !important;
+    --popover-foreground: 240 10% 92.2% !important;
+    --primary: 21 90.2% 47.8% !important; /* #E8590C, l'action */
+    --primary-foreground: 0 0% 100% !important;
+    --secondary: 225 8.9% 17.6% !important; /* #292b31 */
+    --secondary-foreground: 240 10% 92.2% !important;
+    --muted: 225 8.9% 17.6% !important;
+    --muted-foreground: 230 12.5% 62.4% !important; /* #9397ab */
+    --accent: 248 58.1% 71% !important; /* #968ae0 */
+    --accent-foreground: 232 26.7% 11.8% !important;
+    --border: 236 11.1% 24.7% !important; /* #383946 */
+    --input: 236 11.1% 24.7% !important;
+    --ring: 21 90.2% 47.8% !important;
+}
+
+html,
+body {
+    background: var(--color-bg);
+}
+
+/* --------------- 3. Typographie  Oswald pour les titres ---------------
+   1b : " Titres en Oswald, comme la charte. " */
+header h4,
+section h1,
+section h2,
+section h3,
+.fs-oswald {
+    font-family: var(--fs-oswald) !important;
+    letter-spacing: 0.01em;
+}
+
+/* La marque dans l'entete : Oswald 19px 600, interlettrage .04em, capitales */
+header h4 {
+    font-size: 19px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase;
+}
+
+/* Titre du premier ecran : Oswald 56px, interligne 1.02, graisse 600 */
+section#premier-ecran h1 {
+    font-family: var(--fs-oswald) !important;
+    font-size: 56px !important;
+    line-height: 1.02 !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+    text-transform: uppercase;
+    text-wrap: pretty;
+    margin-bottom: 0 !important;
+}
+/* Page de vente : 44px, interligne 1.05 */
+section#premier-ecran.fs-vente h1 {
+    font-size: 44px !important;
+    line-height: 1.05 !important;
+}
+
+/* Titres de section : Oswald 26px 500, en capitales */
+section h2 {
+    font-size: 26px !important;
+    font-weight: 500 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+}
+section h3 {
+    font-weight: 500 !important;
+}
+
+/* Le texte courant reste en Inter */
+section p,
+section li,
+section span,
+section div {
+    font-family: Inter, system-ui, sans-serif;
+}
+
+/* La phrase sous le titre : 19px, neutral-300, largeur limitee */
+section#premier-ecran p {
+    font-size: 19px !important;
+    color: var(--color-neutral-300) !important;
+    line-height: 1.5;
+}
+
+/* --------------- 4. Boutons  contour qui se remplit ---------------
+   1b : " boutons orange en contour qui se remplissent au survol ".
+   support.js ne rend pas style-hover : on l'ecrit en vrai :hover. */
+a button[class*="bg-primary"],
+button[class*="bg-primary"] {
+    background: transparent !important;
+    border: 1.5px solid var(--fs-action) !important;
+    color: var(--fs-action-soft) !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    min-height: 48px !important;
+    height: auto !important;
+    padding: 14px 26px !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: none !important;
+    transition:
+        background-color 0.18s ease,
+        color 0.18s ease,
+        border-color 0.18s ease !important;
+}
+a button[class*="bg-primary"]:hover,
+button[class*="bg-primary"]:hover {
+    background: var(--fs-action) !important;
+    color: #ffffff !important;
+}
+a button[class*="bg-primary"]:active,
+button[class*="bg-primary"]:active {
+    filter: brightness(0.94);
+}
+
+/* Boutons secondaires : contour neutre */
+button[class*="border-input"],
+button[class*="bg-secondary"] {
+    border: 1px solid var(--color-neutral-700) !important;
+    color: var(--color-text) !important;
+    background: transparent !important;
+    min-height: 44px !important;
+    border-radius: var(--radius-md) !important;
+}
+
+/* --------------- 5. Cartes --------------- */
+.bg-card {
+    background: var(--color-surface) !important;
+    border: 0 !important;
+    box-shadow: var(--shadow-sm) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 22px;
+    transition: box-shadow 0.18s ease !important;
+}
+.bg-card:hover {
+    box-shadow: var(--shadow-md) !important;
+    transform: none !important;
+}
+
+/* Titre de carte : Oswald 19px 500, capitales, interlettrage .02em */
+.bg-card h3,
+.bg-card h4,
+.bg-card .fs-carte-titre {
+    font-family: var(--fs-oswald) !important;
+    font-size: 19px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.02em !important;
+    text-transform: uppercase;
+}
+.bg-card p {
+    font-size: 14px !important;
+    color: var(--color-neutral-400) !important;
+    line-height: 1.6 !important;
+}
+
+/* --------------- 6. Le premier ecran, deux colonnes ---------------
+   1b : grille 1.15fr / 1fr, gouttiere 48px, hauteur minimale 440px.
+   Le choix est assume : la carte de chiffres partage l'ecran avec le titre. */
+section#premier-ecran > div > div.flex.flex-col {
+    display: grid !important;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 48px;
+    align-items: center;
+    min-height: 440px;
+}
+section#premier-ecran > div > div > div:first-child > div {
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 24px !important;
+}
+header .fs-logo {
+    align-items: center;
+    margin-right: 8px;
+}
+header .fs-logo svg {
+    width: 30px;
+    height: 30px;
+    color: var(--color-text);
+}
+
+@media (max-width: 900px) {
+    section#premier-ecran > div > div.flex.flex-col {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        min-height: 0;
+    }
+}
+
+/* La carte des chiffres, posee par le script */
+.fs-chiffres {
+    padding: 26px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    background: var(--color-surface);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.fs-kicker {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-neutral-500);
+}
+.fs-total {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+.fs-total b {
+    font-family: var(--fs-oswald);
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+.fs-total span {
+    font-size: 20px;
+    color: var(--color-neutral-400);
+}
+.fs-barres {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.fs-barre {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+}
+.fs-barre > i {
+    width: 74px;
+    color: var(--color-neutral-400);
+    font-style: normal;
+    white-space: nowrap;
+}
+.fs-piste {
+    flex: 1;
+    height: 10px;
+    background: var(--color-neutral-800);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.fs-piste > b {
+    display: block;
+    height: 100%;
+    transform-origin: 0 50%;
+    animation: fsGrow 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.fs-chiffres > p {
+    font-size: 13px !important;
+    color: var(--color-neutral-400) !important;
+    margin: 0;
+    line-height: 1.6;
+}
+.fs-meta {
+    display: flex;
+    gap: 22px;
+    font-size: 12.5px;
+    color: var(--color-neutral-500);
+    margin-top: 4px;
+}
+
+/* --------------- 7. Zone secondaire --------------- */
+section[id^="zone-secondaire"] {
+    background: var(--color-neutral-900) !important;
+}
+section#zone-secondaire-debut {
+    border-top: 1px solid var(--color-divider);
+}
+section#zone-secondaire-debut h2 {
+    font-size: 11px !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase;
+    color: var(--color-neutral-500) !important;
+    font-family: Inter, sans-serif !important;
+    font-weight: 400 !important;
+}
+
+/* --------------- 8. Accordeons --------------- */
+details > summary {
+    cursor: pointer;
+    list-style: none;
+}
+details > summary::-webkit-details-marker {
+    display: none;
+}
+.fs-acc {
+    border-top: 1px solid var(--color-divider);
+}
+.fs-acc:last-of-type {
+    border-bottom: 1px solid var(--color-divider);
+}
+.fs-acc > summary {
+    padding: 14px 0;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fs-acc > summary::after {
+    content: "+";
+    color: var(--color-neutral-500);
+}
+.fs-acc[open] > summary::after {
+    content: "\2212";
+}
+.fs-acc p {
+    font-size: 14px !important;
+    color: var(--color-neutral-400) !important;
+    line-height: 1.65 !important;
+    margin: 0 0 16px !important;
+    max-width: 640px;
+}
+
+/* --------------- 9. Le rail de prix collant (page de vente) ---------------
+   1b : colonne de 320px, collee en haut, bordure a gauche. */
+.fs-rail {
+    position: sticky;
+    top: 88px;
+    align-self: start;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-left: 1px solid var(--color-divider);
+    background: var(--color-bg);
+}
+.fs-rail .fs-prix {
+    font-family: var(--fs-oswald);
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 1;
+}
+.fs-rail > p {
+    font-size: 13px !important;
+    color: var(--color-neutral-400) !important;
+    margin: 0;
+}
+.fs-rail a button[class*="bg-primary"] {
+    width: 100%;
+    min-height: 50px !important;
+    padding: 14px !important;
+}
+.fs-confiance {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 12.5px;
+    color: var(--color-neutral-400);
+}
+.fs-confiance span {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+.fs-rail-outils {
+    border-top: 1px solid var(--color-divider);
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.fs-rail-outils b {
+    font-size: 14px;
+    font-weight: 600;
+}
+.fs-rail-outils p {
+    font-size: 13px !important;
+    color: var(--color-neutral-400) !important;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* --------------- 9 bis. Page de vente : la grille deux colonnes ---------------
+   1b : le contenu a gauche, le rail de prix de 320 px a droite. */
+.fs-vente-grille {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    align-items: start;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.fs-vente-grille .fs-colonne {
+    min-width: 0;
+}
+@media (max-width: 1000px) {
+    .fs-vente-grille {
+        grid-template-columns: 1fr;
+    }
+    .fs-rail {
+        position: static;
+        border-left: 0;
+        border-top: 1px solid var(--color-divider);
+    }
+}
+/* Les trois graphiques s'empilent, chacun avec son argument. */
+#graphiques .fs-graph + .fs-graph {
+    margin-top: 18px;
+}
+#graphiques svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --------------- 10. Graphiques --------------- */
+section img[src$=".svg"] {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    margin: 10px 0 6px;
+}
+.fs-graph {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+}
+.fs-graph b {
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+.fs-graph p {
+    font-size: 13.5px !important;
+    color: var(--color-neutral-400) !important;
+    margin: 0;
+    line-height: 1.6;
+}
+@media (max-width: 700px) {
+    .fs-graph {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --------------- 13. Les deux paquets (card-25) ---------------
+   Transcription des classes Tailwind du composant :
+   rounded-2xl, bg-card, p-6, shadow-sm, hover:-translate-y-1,
+   hover:shadow-lg, et l'ecartement des images au survol. */
+.fs-packs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 28px;
+}
+@media (max-width: 860px) {
+    .fs-packs {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fs-pack {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    border-radius: 16px; /* rounded-2xl */
+    border: 1px solid var(--color-divider);
+    background: var(--color-surface); /* bg-card */
+    color: var(--color-text);
+    padding: 24px; /* p-6 */
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    transition:
+        transform 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
+}
+.fs-pack:hover {
+    transform: translateY(-4px); /* hover:-translate-y-1 */
+    box-shadow: var(--shadow-lg);
+}
+
+.fs-pack-tete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+.fs-pack-tete h3 {
+    font-family: var(--fs-oswald) !important;
+    font-size: 30px !important; /* text-3xl */
+    font-weight: 600 !important;
+    letter-spacing: -0.02em !important; /* tracking-tighter */
+    text-transform: uppercase;
+    margin: 0 !important;
+}
+.fs-pack-fleche {
+    flex: none;
+    color: var(--fs-action);
+    transition: transform 0.3s ease-in-out;
+}
+.fs-pack:hover .fs-pack-fleche {
+    transform: translateX(4px);
+}
+
+/* Les images empilees, qui s'ecartent et pivotent au survol */
+.fs-pack-images {
+    position: relative;
+    margin-bottom: 24px;
+    height: 128px;
+}
+.fs-pack-img {
+    position: absolute;
+    height: 100%;
+    width: 40%;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid var(--color-bg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+    transition: transform 0.3s ease-in-out;
+}
+.fs-pack:hover .fs-pack-img,
+.fs-pack:focus-visible .fs-pack-img {
+    /* !important : la position de depart est un style inline, qui gagnerait
+     sinon sur cette regle et empecherait tout ecartement. */
+    transform: translateX(var(--tx)) rotate(var(--r)) !important;
+}
+.fs-pack-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.fs-pack-stats {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: var(--color-neutral-400);
+}
+.fs-pack-stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.fs-pack-stat svg {
+    flex: none;
+    color: var(--fs-action);
+}
+.fs-pack > p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: var(--color-neutral-400) !important;
+    margin: 0 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fs-pack,
+    .fs-pack-img,
+    .fs-pack-fleche {
+        transition: none !important;
+    }
+    .fs-pack:hover .fs-pack-img {
+        transform: translateX(var(--tx)) rotate(var(--r));
+    }
+}
+
+/* --------------- 14. Les trois dossiers 3D ---------------
+   Transcription du composant AnimatedFolder dans les tokens Nocturne.
+   Le dossier est volontairement sombre : l'orange reste reserve a
+   l'action, il n'apparait ici qu'au survol, en liseres. */
+.fs-dossiers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 8px;
+}
+@media (max-width: 980px) {
+    .fs-dossiers {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fs-dossier {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 24px 34px;
+    border-radius: 16px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-divider);
+    box-shadow: var(--shadow-sm);
+    perspective: 1000px;
+    transition:
+        box-shadow 0.5s ease-out,
+        border-color 0.5s ease-out;
+}
+.fs-dossier:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: color-mix(in srgb, var(--fs-action) 32%, transparent);
+}
+
+/* la scene ou vit le dossier */
+.fs-dos-scene {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 196px;
+    width: 210px;
+    margin-bottom: 10px;
+}
+
+/* --- les teintes sombres du dossier --- */
+.fs-dos-back,
+.fs-dos-front {
+    position: absolute;
+    width: 128px;
+    height: 96px;
+    border-radius: 8px;
+    transform-origin: bottom center;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.fs-dos-back {
+    background: #2b2f3f;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+    bottom: 10px;
+    z-index: 10;
+}
+.fs-dos-front {
+    background: linear-gradient(170deg, #3a3f52 0%, #2f3343 100%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    bottom: 6px;
+    z-index: 30;
+}
+.fs-dos-tab {
+    position: absolute;
+    width: 48px;
+    height: 16px;
+    border-radius: 6px 6px 0 0;
+    background: #434961;
+    bottom: 106px;
+    left: calc(50% - 64px + 16px);
+    transform-origin: bottom center;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 10;
+}
+.fs-dos-shine {
+    position: absolute;
+    width: 128px;
+    height: 96px;
+    border-radius: 8px;
+    overflow: hidden;
+    pointer-events: none;
+    bottom: 6px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.14) 0%,
+        transparent 50%
+    );
+    transform-origin: bottom center;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 31;
+}
+
+/* le dossier s'ouvre */
+.fs-dossier:hover .fs-dos-back {
+    transform: rotateX(-15deg);
+}
+.fs-dossier:hover .fs-dos-tab {
+    transform: rotateX(-25deg) translateY(-2px);
+}
+.fs-dossier:hover .fs-dos-front,
+.fs-dossier:hover .fs-dos-shine {
+    transform: rotateX(25deg) translateY(8px);
+}
+
+/* --- les trois photos --- */
+.fs-dos-cartes {
+    position: absolute;
+    bottom: 58px;
+    left: 50%;
+    z-index: 20;
+}
+.fs-dos-carte {
+    position: absolute;
+    width: 80px;
+    height: 112px;
+    left: -40px;
+    top: -56px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--color-surface);
+    border: 1px solid var(--color-divider);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(0) translateX(0) rotate(0deg) scale(0.5);
+    transition:
+        transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.2s ease;
+}
+.fs-dos-carte img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.fs-dos-carte span {
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.fs-dos-carte::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent 60%);
+}
+.fs-dos-carte:hover {
+    box-shadow:
+        0 0 0 2px var(--fs-action),
+        0 12px 22px rgba(0, 0, 0, 0.55);
+}
+.fs-dos-carte:focus-visible {
+    outline: 2px solid var(--fs-action);
+    outline-offset: 2px;
+}
+
+.fs-dos-carte[data-i="0"] {
+    z-index: 10;
+    transition-delay: 0ms;
+}
+.fs-dos-carte[data-i="1"] {
+    z-index: 9;
+    transition-delay: 80ms;
+}
+.fs-dos-carte[data-i="2"] {
+    z-index: 8;
+    transition-delay: 160ms;
+}
+
+.fs-dossier:hover .fs-dos-carte {
+    opacity: 1;
+}
+.fs-dossier:hover .fs-dos-carte[data-i="0"] {
+    transform: translateY(-78px) translateX(-55px) rotate(-12deg) scale(1);
+}
+.fs-dossier:hover .fs-dos-carte[data-i="1"] {
+    transform: translateY(-78px) translateX(0) rotate(0deg) scale(1);
+}
+.fs-dossier:hover .fs-dos-carte[data-i="2"] {
+    transform: translateY(-78px) translateX(55px) rotate(12deg) scale(1);
+}
+
+/* --- titre et texte --- */
+.fs-dossier h3 {
+    font-family: var(--fs-oswald) !important;
+    font-size: 19px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.02em !important;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 10px 0 8px !important;
+    transition: transform 0.3s ease;
+}
+.fs-dossier:hover h3 {
+    transform: translateY(4px);
+}
+.fs-dossier > p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: var(--color-neutral-400) !important;
+    text-align: left;
+    margin: 0 !important;
+}
+.fs-dos-hint {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-neutral-600);
+    opacity: 0.7;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+.fs-dossier:hover .fs-dos-hint {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+}
+
+/* --------------- 15. La visionneuse --------------- */
+.fs-vue {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fs-vue.fs-vue-ouverte {
+    opacity: 1;
+}
+.fs-vue-fond {
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+    backdrop-filter: blur(16px);
+}
+.fs-vue-cadre {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    max-width: 860px;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-lg);
+    transform: scale(0.96);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fs-vue-ouverte .fs-vue-cadre {
+    transform: scale(1);
+}
+.fs-vue-img {
+    display: block;
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    background: var(--color-bg);
+}
+.fs-vue-cadre figcaption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 22px;
+    border-top: 1px solid var(--color-divider);
+}
+.fs-vue-titre {
+    font-family: var(--fs-oswald);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+.fs-vue-points {
+    display: flex;
+    gap: 7px;
+}
+.fs-vue-point {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-neutral-700);
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+.fs-vue-point.actif {
+    background: var(--fs-action);
+    transform: scale(1.15);
+}
+
+.fs-vue button {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    border: 1px solid var(--color-divider);
+    color: var(--color-neutral-300);
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        opacity 0.25s ease;
+}
+.fs-vue button:hover {
+    color: var(--color-text);
+    transform: scale(1.08);
+}
+.fs-vue button:disabled {
+    opacity: 0;
+    pointer-events: none;
+}
+.fs-vue-fermer {
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+}
+.fs-vue-prec {
+    left: 20px;
+    width: 48px;
+    height: 48px;
+}
+.fs-vue-suiv {
+    right: 20px;
+    width: 48px;
+    height: 48px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fs-dos-back,
+    .fs-dos-front,
+    .fs-dos-tab,
+    .fs-dos-shine,
+    .fs-dos-carte,
+    .fs-vue,
+    .fs-vue-cadre {
+        transition: none !important;
+    }
+}
+
+/* --------------- 11. Les sept keyframes de la maquette --------------- */
+@keyframes fsDraw {
+    from {
+        stroke-dashoffset: 900;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes fsRise {
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
+    }
+}
+@keyframes fsGrow {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+@keyframes fsUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+@keyframes fsPlate {
+    from {
+        opacity: 0;
+        transform: translateY(-28px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+@keyframes fsPulse {
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+    50% {
+        opacity: 0.85;
+    }
+}
+@keyframes fsBob {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+}
+
+/* Le logo se construit : plateaux exterieurs .05s, interieurs .2s,
+   segments de barre .4s et .55s, segment orange en dernier a .75s. */
+.fs-logo {
+    display: flex;
+}
+.fs-logo svg {
+    display: block;
+    width: 30px;
+    height: auto;
+}
+.fs-logo.fs-go .fs-p1,
+.fs-logo.fs-go .fs-p2 {
+    animation: fsPlate 0.3s ease-out 0.05s both;
+}
+.fs-logo.fs-go .fs-p3,
+.fs-logo.fs-go .fs-p4 {
+    animation: fsPlate 0.3s ease-out 0.2s both;
+}
+.fs-logo.fs-go .fs-b1 {
+    animation: fsUp 0.3s ease-out 0.4s both;
+}
+.fs-logo.fs-go .fs-b2 {
+    animation: fsUp 0.3s ease-out 0.55s both;
+}
+.fs-logo.fs-go .fs-center {
+    animation: fsUp 0.3s ease-out 0.75s both;
+}
+
+/* Apparition des sections */
+[data-fs-reveal="pending"] {
+    opacity: 0;
+    transform: translateY(16px);
+}
+[data-fs-reveal="in"] {
+    opacity: 1;
+    transform: none;
+    transition:
+        opacity 0.36s cubic-bezier(0.22, 0.61, 0.36, 1),
+        transform 0.36s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* --------------- 12. Accessibilite ---------------
+   La maquette coupe toute animation. */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+    [data-fs-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

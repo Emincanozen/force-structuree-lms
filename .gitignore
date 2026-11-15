@@ -1,0 +1,74 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies and build outputs
+node_modules/
+.next/
+dist/
+build/
+.turbo/
+out/
+
+# Environment files
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Jest coverage & reports
+coverage/
+report*.json
+globalConfig.json
+
+# Text editors and IDEs
+.vscode/
+.idea/
+.rgignore
+
+# Yarn
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Dev tools files
+.eslintcache
+.npmrc
+
+# Temporary & agent files
+~
+domains_to_delete.txt
+.codex
+.agents
+
+# ─────────────────────────────────────────────────────────────────────
+# Force Structuree : ce qui ne doit JAMAIS partir sur un depot distant
+# ─────────────────────────────────────────────────────────────────────
+
+# Secrets. Le fichier .env contient la cle de session, la chaine de
+# connexion a la base et l'adresse de l'administrateur.
+apps/web/.env
+apps/queue/.env
+deploiement-force-structuree/.env
+
+# Le produit lui-meme. Le PDF de 200 pages et les deux classeurs Excel
+# sont ce que le client achete : les publier reviendrait a les donner.
+public/telechargements/
+**/public/telechargements/
+apps/web/public/telechargements/
+
+# Sauvegardes de la base : elles contiennent les comptes clients.
+*.archive
+sauvegardes/

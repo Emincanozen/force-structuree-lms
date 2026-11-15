@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="760" height="300" role="img" aria-label="L'échelle RPE : de 5 ou moins pour l'échauffement jusqu'à 10 pour l'échec">
+  <title>L'échelle RPE</title>
+  <style>
+    .t   { font-family: "Segoe UI", Arial, sans-serif; fill: #F8F9FA; }
+    .ttl { font-size: 15px; font-weight: 700; letter-spacing: .4px; }
+    .sub { font-size: 11.5px; fill: #9CA3AF; }
+    .rpe { font-size: 17px; font-weight: 700; }
+    .rir { font-size: 11px; fill: #C7CCD3; }
+    .dsc { font-size: 12.5px; }
+    .zon { font-size: 11px; font-weight: 600; }
+  </style>
+
+  <rect width="760" height="300" fill="#131A24"/>
+
+  <text class="t ttl" x="24" y="32">RPE : ce que tu notes après chaque série</text>
+  <text class="t sub" x="24" y="52">RPE = 10 moins le nombre de répétitions qu'il te restait en réserve.</text>
+
+  <!-- lignes -->
+  <g>
+    <!-- 10 -->
+    <rect x="24" y="70"  width="712" height="32" rx="4" fill="#2A1A1A" stroke="#5A2A22"/>
+    <text class="t rpe" x="44"  y="92" fill="#E86A5A">10</text>
+    <text class="t rir" x="82"  y="91">0 en réserve</text>
+    <text class="t dsc" x="188" y="91">Échec. La répétition ne passe plus.</text>
+
+    <!-- 9 -->
+    <rect x="24" y="108" width="712" height="32" rx="4" fill="#1F2A37" stroke="#374151"/>
+    <text class="t rpe" x="44"  y="130" fill="#E8590C">9</text>
+    <text class="t rir" x="82"  y="129">1 en réserve</text>
+    <text class="t dsc" x="188" y="129">Très difficile. Une de plus était possible.</text>
+
+    <!-- 8 -->
+    <rect x="24" y="146" width="712" height="32" rx="4" fill="#1E2B22" stroke="#2F5238"/>
+    <text class="t rpe" x="44"  y="168" fill="#5FBF7A">8</text>
+    <text class="t rir" x="82"  y="167">2 en réserve</text>
+    <text class="t dsc" x="188" y="167">Effort intense. C'est là que tu travailles le plus souvent.</text>
+
+    <!-- 7 -->
+    <rect x="24" y="184" width="712" height="32" rx="4" fill="#1E2B22" stroke="#2F5238"/>
+    <text class="t rpe" x="44"  y="206" fill="#5FBF7A">7</text>
+    <text class="t rir" x="82"  y="205">3 en réserve</text>
+    <text class="t dsc" x="188" y="205">Soutenu. La barre commence à ralentir.</text>
+
+    <!-- 6 -->
+    <rect x="24" y="222" width="712" height="32" rx="4" fill="#1F2A37" stroke="#374151"/>
+    <text class="t rpe" x="44"  y="244" fill="#9CA3AF">6</text>
+    <text class="t rir" x="82"  y="243">4 en réserve</text>
+    <text class="t dsc" x="188" y="243">Série légère.</text>
+
+    <!-- 5 et moins -->
+    <rect x="24" y="260" width="712" height="30" rx="4" fill="#1F2A37" stroke="#374151"/>
+    <text class="t rpe" x="44"  y="281" fill="#9CA3AF" font-size="14">≤5</text>
+    <text class="t rir" x="82"  y="280">5 et plus</text>
+    <text class="t dsc" x="188" y="280">Échauffement, travail technique.</text>
+  </g>
+
+  <!-- marqueur zone de travail -->
+  <rect x="14" y="146" width="4" height="70" rx="2" fill="#5FBF7A"/>
+  <text class="t zon" x="620" y="167" fill="#5FBF7A">zone de travail</text>
+  <text class="t zon" x="620" y="205" fill="#5FBF7A">du cycle</text>
+</svg>
