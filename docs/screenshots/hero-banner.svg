@@ -1,0 +1,76 @@
+<svg width="1200" height="340" viewBox="0 0 1200 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <radialGradient id="glowTopRight" cx="90%" cy="10%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBottomLeft" cx="10%" cy="90%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
+    </linearGradient>
+    <filter id="badgeShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="340" rx="16" fill="url(#bgGrad)"/>
+  <rect width="1200" height="340" rx="16" fill="url(#glowTopRight)"/>
+  <rect width="1200" height="340" rx="16" fill="url(#glowBottomLeft)"/>
+  <rect x="1" y="1" width="1198" height="338" rx="15" stroke="#334155" stroke-width="1.5" stroke-opacity="0.6"/>
+
+  <!-- Grid Decoration -->
+  <path d="M0 68 H1200 M0 136 H1200 M0 204 H1200 M0 272 H1200" stroke="#334155" stroke-width="1" stroke-opacity="0.15"/>
+  <path d="M150 0 V340 M300 0 V340 M450 0 V340 M600 0 V340 M750 0 V340 M900 0 V340 M1050 0 V340" stroke="#334155" stroke-width="1" stroke-opacity="0.15"/>
+
+  <!-- Decorative Learning / Course Modules Accent -->
+  <g opacity="0.12">
+    <rect x="940" y="80" width="180" height="40" rx="8" stroke="#6366f1" stroke-width="2" fill="none"/>
+    <rect x="960" y="140" width="160" height="40" rx="8" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 6" fill="none"/>
+    <circle cx="1090" cy="230" r="45" stroke="#818cf8" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <!-- Super Title / Tag -->
+  <g transform="translate(80, 52)">
+    <rect width="215" height="28" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <circle cx="16" cy="14" r="5" fill="#6366f1"/>
+    <text x="30" y="18" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="1">ENTERPRISE MONOREPO LMS</text>
+  </g>
+
+  <!-- Title -->
+  <text x="80" y="145" fill="url(#titleGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="50" font-weight="800" letter-spacing="-1">Force Structurée</text>
+  <text x="495" y="145" fill="#818cf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="50" font-weight="800" letter-spacing="-1">LMS</text>
+
+  <!-- Tagline -->
+  <text x="80" y="190" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="18" font-weight="400">Open-Source Monorepo Learning Management System • Next.js 16 • React 19 • GraphQL &amp; MongoDB</text>
+
+  <!-- 4 Tech Pills -->
+  <g transform="translate(80, 235)" filter="url(#badgeShadow)">
+    <rect width="195" height="42" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+    <text x="22" y="26" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600">▲ Next.js 16 (React 19)</text>
+  </g>
+
+  <g transform="translate(290, 235)" filter="url(#badgeShadow)">
+    <rect width="185" height="42" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+    <text x="22" y="26" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600">⚡ GraphQL &amp; REST</text>
+  </g>
+
+  <g transform="translate(490, 235)" filter="url(#badgeShadow)">
+    <rect width="180" height="42" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+    <text x="22" y="26" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600">🍃 MongoDB Models</text>
+  </g>
+
+  <g transform="translate(685, 235)" filter="url(#badgeShadow)">
+    <rect width="185" height="42" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+    <text x="22" y="26" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600">📦 Monorepo &amp; PNPM</text>
+  </g>
+</svg>

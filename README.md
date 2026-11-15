@@ -1,34 +1,106 @@
+<div align="center">
+
+![Force Structurée LMS Banner](docs/screenshots/hero-banner.svg)
+
 # Force Structurée LMS
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat&logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19-blue?style=flat&logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
-[![GraphQL](https://img.shields.io/badge/GraphQL-API-e10098?style=flat&logo=graphql)](https://graphql.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?style=flat&logo=mongodb)](https://www.mongodb.com/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0-38bdf8?style=flat&logo=tailwindcss)](https://tailwindcss.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](LICENSE.md)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![GraphQL](https://img.shields.io/badge/GraphQL-API-e10098?style=for-the-badge&logo=graphql)](https://graphql.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0-38bdf8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE.md)
 
-Modern, open-source Learning Management System (LMS) designed for online course delivery, digital product distribution, interactive video learning, and student community management.
+**Modern, open-source Learning Management System (LMS) designed for online course delivery, digital product distribution, interactive video learning, and student community management.**
+
+[Overview](#overview) • [Live Demo](#live-demo) • [Screenshots](#screenshots) • [Architecture](#monorepo-architecture) • [Install & Configure](#how-to-install--configure) • [How to Use](#how-to-use) • [Create & Customize](#how-to-create--customize) • [Testing](#testing--quality-assurance) • [License](#license)
+
+</div>
+
+---
+
+## Overview
 
 Force Structurée LMS unifies an optimized public storefront, an immersive student learning experience, an exhaustive administration dashboard, digital curriculum management, integrated billing/checkout, and asynchronous worker queues for automated email delivery and sequenced learning journeys.
 
 ---
 
+## Live Demo
+
+<div align="center">
+
+![Force Structurée LMS Demo](docs/screenshots/demo.gif)
+
+*Flow across instructor dashboard analytics, student interactive video player with curriculum sidebar, and visual page block builder.*
+
+</div>
+
+---
+
 ## Screenshots
 
-| Instructor & Admin Analytics Dashboard |
-| :---: |
-| ![Instructor & Admin Dashboard](docs/screenshots/01_admin_dashboard.png) |
-
-| Student Video Player & Curriculum Sidebar | Modular Visual Page Block Builder |
-| :---: | :---: |
-| ![Student Course Player](docs/screenshots/02_course_player.png) | ![Modular Page Builder](docs/screenshots/03_page_block_builder.png) |
+<table width="100%">
+  <tr>
+    <td colspan="2" align="center">
+      <b>Instructor &amp; Admin Analytics Dashboard</b><br/><br/>
+      <img src="docs/screenshots/01_admin_dashboard.webp" alt="Instructor & Admin Dashboard" width="90%"/>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <b>Student Course Player &amp; Curriculum Sidebar</b><br/><br/>
+      <img src="docs/screenshots/02_course_player.webp" alt="Student Course Player" width="100%"/>
+    </td>
+    <td width="50%" align="center">
+      <b>Modular Visual Page Block Builder</b><br/><br/>
+      <img src="docs/screenshots/03_page_block_builder.webp" alt="Modular Page Builder" width="100%"/>
+    </td>
+  </tr>
+</table>
 
 ---
 
 ## Monorepo Architecture
 
 The repository is structured as a high-performance monorepo managed with `pnpm`:
+
+```mermaid
+flowchart TD
+    subgraph Client_Applications["Applications (`apps/`)"]
+        Web["Next.js Web Portal (`apps/web`)<br/>React 19 • App Router • Tailwind"]
+        Worker["Queue Service (`apps/queue`)<br/>Background Workers • Drip • Emails"]
+        Docs["Documentation Portal (`apps/docs-new`)<br/>Fumadocs • Guides & API Reference"]
+        Demo["Offline Interactive Showcase (`demo/`)<br/>Dashboard • Video Player • Builder"]
+    end
+
+    subgraph Core_Monorepo["Shared Packages (`packages/`)"]
+        CommonModels["`common-models` & `orm-models`<br/>Domain Schemas & Mongoose"]
+        CommonLogic["`common-logic`<br/>Resolvers • Permissions • Auth"]
+        UI_Library["`components-library`<br/>Primitives • Themes • Dialogs"]
+        PageBlocks["`page-blocks` & `page-primitives`<br/>Dynamic Modular Page Builder"]
+        Editors["`text-editor` & `email-editor`<br/>Rich Content Authoring"]
+        Utils["`utils`<br/>Sanitization • Query Builders"]
+    end
+
+    subgraph Data_Infra["Data & Infrastructure"]
+        MongoDB[("MongoDB Database<br/>Courses • Users • Purchases")]
+        QueueBroker["Redis / In-Memory Worker Queues"]
+        Caddy["Caddy Reverse Proxy<br/>Auto TLS / HTTPS"]
+    end
+
+    Web --> CommonLogic
+    Web --> CommonModels
+    Web --> UI_Library
+    Web --> PageBlocks
+    Web --> Editors
+    Worker --> CommonLogic
+    Worker --> CommonModels
+    CommonLogic --> MongoDB
+    Worker --> QueueBroker
+    Caddy --> Web
+    Caddy --> Worker
+```
 
 ### Applications (`apps/`)
 
