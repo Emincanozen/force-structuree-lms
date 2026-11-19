@@ -10,7 +10,7 @@
 [![GraphQL](https://img.shields.io/badge/GraphQL-API-e10098?style=for-the-badge&logo=graphql)](https://graphql.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0-38bdf8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE.md)
+[X](LICENSE.md)
 
 **Modern, open-source Learning Management System (LMS) designed for online course delivery, digital product distribution, interactive video learning, and student community management.**
 
@@ -263,4 +263,8 @@ pnpm test
 
 ## License
 
-This project is open-source software licensed under the [MIT License](LICENSE.md).
+This project is open-source software licensed under the [GNU Affero General Public License v3.0](LICENSE.md) (AGPL-3.0). If you run a modified version as a network service, the AGPL requires you to offer its source code to the users of that service.
+
+## Credits
+
+Force Structurée LMS is built on the open-source [CourseLit](https://github.com/codelitdev/courselit) platform (the `@courselit/*` packages), which is itself released under the AGPL-3.0.
